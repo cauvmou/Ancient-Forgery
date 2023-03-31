@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "ancient-forgery",
+	"version": "${version}",
+	"name": "Ancient Forgery",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/ancient-forgery/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.github.ancientforgery.ExampleMod"
+		],
+		"client": [
+			"com.github.ancientforgery.ExampleModClient"
+		],
+		"fabric-datagen": [
+			"com.github.ancientforgery.ExampleModDataGenerator"
+		]
+	},
+	"mixins": [
+		"ancient-forgery.mixins.json",
+		{
+			"config": "ancient-forgery.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.14.18",
+		"minecraft": "1.20-alpha.23.13.a",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
