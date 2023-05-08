@@ -3,9 +3,11 @@
 	"id": "ancient-forgery",
 	"version": "${version}",
 	"name": "Ancient Forgery",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "WIP",
 	"authors": [
-		"Me!"
+		"David Koch (Davideko)",
+		"Julian Burger (Cauvmou)",
+		"Bastian Uhlig (LeyLao)"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
@@ -33,8 +35,8 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.14.18",
-		"minecraft": "1.20-alpha.23.13.a",
+		"fabricloader": ">=0.14.19",
+		"minecraft": "1.20-alpha.23.18.a",
 		"java": ">=17",
 		"fabric-api": "*"
 	},
