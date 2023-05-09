@@ -3,7 +3,7 @@
 	"package": "com.github.ancientforgery.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"BrushableBlockDebugMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
