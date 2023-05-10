@@ -1,4 +1,4 @@
-package com.github.ancientforgery.blocks;
+package com.github.ancientforgery.block.entity;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.advancement.criterion.Criteria;

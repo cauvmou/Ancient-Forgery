@@ -12,9 +12,11 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 public class BonePileBlock extends HorizontalFacingBlock {
@@ -35,6 +37,11 @@ public class BonePileBlock extends HorizontalFacingBlock {
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         world.breakBlock(pos, false, entity);
         super.onSteppedOn(world, pos, state, entity);
+    }
+
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        BlockPos blockPos = pos.down();
+        return hasTopRim(world, blockPos) || sideCoversSmallSquare(world, blockPos, Direction.UP);
     }
 
     @Nullable

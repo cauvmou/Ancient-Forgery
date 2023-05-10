@@ -2,21 +2,23 @@ package com.github.ancientforgery;
 
 import com.github.ancientforgery.block.custom.BonePileBlock;
 import com.github.ancientforgery.block.custom.FakeFletchingTableBlock;
+import com.github.ancientforgery.block.custom.SuspiciousSoulSand;
 import com.github.ancientforgery.block.entity.FakeFletchingTableBlockEntity;
-import com.github.ancientforgery.blocks.SuspiciousSoulSand;
-import com.github.ancientforgery.blocks.SuspiciousSoulSandEntity;
+import com.github.ancientforgery.block.entity.SuspiciousSoulSandEntity;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.BrushableBlockEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -85,5 +87,7 @@ public class AncientForgery implements ModInitializer {
 		FLETCHING_TABLE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
 				new Identifier("ancient-forgery", "fletching_table"),
 				FabricBlockEntityTypeBuilder.create(FakeFletchingTableBlockEntity::new, FAKE_FLETCHING_TABLE).build(null));
+
+
 	}
 }

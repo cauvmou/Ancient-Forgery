@@ -56,7 +56,7 @@ public class BrushableBlockDebugMixin extends BlockEntity {
             }
 
             LootContext.Builder builder = (new LootContext.Builder((ServerWorld)world)).parameter(LootContextParameters.ORIGIN, Vec3d.ofCenter(pos)).random(lootTableSeed).luck(player.getLuck()).parameter(LootContextParameters.THIS_ENTITY, player);
-            System.out.println("Position: " + pos.toShortString());
+            player.sendMessage(Text.literal("Position: " + pos.toShortString()));
             ObjectArrayList<ItemStack> objectArrayList = lootTable.generateLoot(builder.build(LootContextTypes.CHEST));
             ItemStack var10001;
             switch (objectArrayList.size()) {
