@@ -1,11 +1,14 @@
-package com.github.ancient_frogery;
+package com.github.ancient_forgery;
 
 import net.fabricmc.api.DedicatedServerModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Environment(EnvType.SERVER)
 public class AncientForgery implements DedicatedServerModInitializer {
     // This logger is used to write text to the console and the log file.
     // It is considered best practice to use your mod id as the logger's name.

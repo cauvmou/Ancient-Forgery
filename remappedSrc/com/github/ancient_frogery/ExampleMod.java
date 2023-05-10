@@ -1,4 +1,4 @@
-package com.github.ancient_frogery;
+package com.github.ancient_forgery;
 
 import net.fabricmc.api.ModInitializer;
 
