@@ -1,42 +1,33 @@
 {
 	"schemaVersion": 1,
-	"id": "ancient-forgery",
+	"id": "ancient_frogery",
 	"version": "${version}",
-	"name": "Ancient Forgery",
-	"description": "WIP",
+	"name": "Ancient Frogery",
+	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"David Koch (Davideko)",
-		"Julian Burger (Cauvmou)",
-		"Bastian Uhlig (LeyLao)"
+		"Me!"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/ancient-forgery/icon.png",
+	"icon": "assets/ancient_frogery/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.github.ancientforgery.AncientForgery"
+			"com.github.ancient_frogery.AncientForgery"
 		],
 		"client": [
-			"com.github.ancientforgery.AncientForgeryClient"
-		],
-		"fabric-datagen": [
-			"com.github.ancientforgery.AncientForgeryDataGenerator"
+			"com.github.ancient_frogery.client.AncientForgery"
 		]
 	},
 	"mixins": [
-		"ancient-forgery.mixins.json",
-		{
-			"config": "ancient-forgery.client.mixins.json",
-			"environment": "client"
-		}
+		"ancient_frogery.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.19",
-		"minecraft": "1.20-alpha.23.18.a",
+		"minecraft": "~1.19.4",
 		"java": ">=17",
 		"fabric-api": "*"
 	},

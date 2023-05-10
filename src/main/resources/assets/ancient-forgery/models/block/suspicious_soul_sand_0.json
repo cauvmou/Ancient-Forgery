@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "ancient-forgery:block/suspicious_soul_sand_0"
-  }
-}
