@@ -24,7 +24,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class FakeFletchingTableBlock extends HorizontalFacingBlock implements BlockEntityProvider {
+// public class FakeFletchingTableBlock extends HorizontalFacingBlock implements BlockEntityProvider {
+public class FakeFletchingTableBlock extends HorizontalFacingBlock {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
     public FakeFletchingTableBlock(Settings settings) {
@@ -66,6 +67,7 @@ public class FakeFletchingTableBlock extends HorizontalFacingBlock implements Bl
         return BlockRenderType.MODEL;
     }
 
+    /*
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
@@ -112,4 +114,5 @@ public class FakeFletchingTableBlock extends HorizontalFacingBlock implements Bl
     private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
         return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
     }
+     */
 }
