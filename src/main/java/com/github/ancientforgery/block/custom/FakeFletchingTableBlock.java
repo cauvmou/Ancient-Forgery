@@ -1,20 +1,32 @@
 package com.github.ancientforgery.block.custom;
 
+import com.github.ancientforgery.AncientForgery;
 import com.github.ancientforgery.block.entity.FakeFletchingTableBlockEntity;
+import com.github.ancientforgery.screen.FletchingScreenHandler;
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.SmithingRecipe;
+import net.minecraft.registry.Registries;
+import net.minecraft.screen.*;
+import net.minecraft.screen.slot.ForgingSlotsManager;
+import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -24,8 +36,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-// public class FakeFletchingTableBlock extends HorizontalFacingBlock implements BlockEntityProvider {
-public class FakeFletchingTableBlock extends HorizontalFacingBlock {
+public class FakeFletchingTableBlock extends BlockWithEntity {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
     public FakeFletchingTableBlock(Settings settings) {
@@ -46,42 +57,27 @@ public class FakeFletchingTableBlock extends HorizontalFacingBlock {
     }
 
     @Override
-    public BlockState rotate(BlockState state, BlockRotation rotation) {
-        return state.with(FACING, rotation.rotate(state.get(FACING)));
-    }
-
-    @Override
-    public BlockState mirror(BlockState state, BlockMirror mirror) {
-        return state.rotate(mirror.getRotation(state.get(FACING)));
-    }
-
-    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 
-    /* BLOCK ENTITY STUFF AHEAD!!!! */
-
     @Override
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
-    }
-
-    /*
-    @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (state.getBlock() != newState.getBlock()) {
-            BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof FakeFletchingTableBlockEntity) {
-                ItemScatterer.spawn(world, pos, (FakeFletchingTableBlockEntity)blockEntity);
-                world.updateComparators(pos,this);
+    public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
+        return new NamedScreenHandlerFactory() {
+            @Override
+            public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+                return new FletchingScreenHandler(syncId, player, ScreenHandlerContext.create(world, pos));
             }
-            super.onStateReplaced(state, world, pos, newState, moved);
-        }
+
+            @Override
+            public Text getDisplayName() {
+                return Text.literal("Fletching Table");
+            }
+        };
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hitResult) {
         if (!world.isClient) {
             NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
 
@@ -89,8 +85,21 @@ public class FakeFletchingTableBlock extends HorizontalFacingBlock {
                 player.openHandledScreen(screenHandlerFactory);
             }
         }
-
         return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if (state.getBlock() != newState.getBlock()) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+
+            if (blockEntity instanceof FakeFletchingTableBlockEntity) {
+                ItemScatterer.spawn(world, pos, (FakeFletchingTableBlockEntity)blockEntity);
+                world.updateComparators(pos,this);
+            }
+
+            super.onStateReplaced(state, world, pos, newState, moved);
+        }
     }
 
     @Nullable
@@ -99,20 +108,8 @@ public class FakeFletchingTableBlock extends HorizontalFacingBlock {
         return new FakeFletchingTableBlockEntity(pos, state);
     }
 
-    private static boolean hasRecipe(FakeFletchingTableBlockEntity entity) {
-        SimpleInventory inventory = new SimpleInventory(entity.size());
-
-        // WIP
-
-        return false;
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
-
-    private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {
-        return inventory.getStack(2).getItem() == output || inventory.getStack(2).isEmpty();
-    }
-
-    private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
-        return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
-    }
-     */
 }

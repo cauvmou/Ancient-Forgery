@@ -5,12 +5,17 @@ import com.github.ancientforgery.block.custom.FakeFletchingTableBlock;
 import com.github.ancientforgery.block.custom.SuspiciousSoulSand;
 import com.github.ancientforgery.block.entity.FakeFletchingTableBlockEntity;
 import com.github.ancientforgery.block.entity.SuspiciousSoulSandEntity;
+import com.github.ancientforgery.screen.FletchingScreenHandler;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CraftingTableBlock;
 import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.BrushableBlockEntity;
@@ -19,6 +24,8 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.screen.CraftingScreenHandler;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -58,9 +65,11 @@ public class AncientForgery implements ModInitializer {
 	public static final FakeFletchingTableBlock FAKE_FLETCHING_TABLE = Registry.register(Registries.BLOCK,
 			new Identifier("ancient-forgery", "fake_fletching_table"),
 			new FakeFletchingTableBlock(FabricBlockSettings
-					.copyOf(Blocks.FLETCHING_TABLE)));
+					.copyOf(Blocks.CRAFTING_TABLE)));
 
 	public static BlockEntityType<FakeFletchingTableBlockEntity> FLETCHING_TABLE;
+
+	public static final ScreenHandlerType<FletchingScreenHandler> FLETCHING_SCREEN_HANDLER = new ScreenHandlerType<>(FletchingScreenHandler::new, null);
 
 	@Override
 	public void onInitialize() {
@@ -87,7 +96,5 @@ public class AncientForgery implements ModInitializer {
 		FLETCHING_TABLE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
 				new Identifier("ancient-forgery", "fletching_table"),
 				FabricBlockEntityTypeBuilder.create(FakeFletchingTableBlockEntity::new, FAKE_FLETCHING_TABLE).build(null));
-
-
 	}
 }
