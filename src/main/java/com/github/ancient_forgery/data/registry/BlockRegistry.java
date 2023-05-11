@@ -11,9 +11,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
-public class BlockRegistry implements com.github.ancient_forgery.data.registry.Registry {
+public class BlockRegistry implements AFRegistry {
 
-    public static final Block SUSPICIOUS_SOUL_SAND = new SuspiciousSoulSand(
+    public static final Block SUSPICIOUS_SOUL_SAND = new SuspiciousSoulSandBlock(
             Blocks.SOUL_SAND,
             FabricBlockSettings.copyOf(Blocks.SOUL_SAND),
             SoundEvent.of(Identifier.of("minecraft", "item.brush.brushing.sand")),

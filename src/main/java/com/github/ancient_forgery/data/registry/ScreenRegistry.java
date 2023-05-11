@@ -8,7 +8,7 @@ import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
-public class ScreenRegistry implements com.github.ancient_forgery.data.registry.Registry {
+public class ScreenRegistry implements AFRegistry {
     public static final ScreenHandlerType<FletchingScreenHandler> FLETCHING_SCREEN_HANDLER = new ScreenHandlerType<>(
             FletchingScreenHandler::new,
             FeatureFlags.VANILLA_FEATURES);

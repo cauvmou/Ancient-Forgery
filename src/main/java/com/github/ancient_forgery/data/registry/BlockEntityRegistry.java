@@ -8,9 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import static com.github.ancient_forgery.data.registry.BlockRegistry.FAKE_FLETCHING_TABLE;
-
-public class BlockEntityRegistry implements com.github.ancient_forgery.data.registry.Registry {
+public class BlockEntityRegistry implements AFRegistry {
 
     public static final BlockEntityType<SuspiciousSoulSandEntity> SUSPICIOUS_SOUL_SAND_ENTITY = FabricBlockEntityTypeBuilder.create(SuspiciousSoulSandEntity::new, BlockRegistry.SUSPICIOUS_SOUL_SAND).build();
     public static final BlockEntityType<FakeFletchingTableBlockEntity> FLETCHING_TABLE = FabricBlockEntityTypeBuilder.create(FakeFletchingTableBlockEntity::new, BlockRegistry.FAKE_FLETCHING_TABLE).build(null);
