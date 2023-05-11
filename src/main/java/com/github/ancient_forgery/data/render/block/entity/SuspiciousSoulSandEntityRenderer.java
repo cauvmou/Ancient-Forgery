@@ -1,6 +1,8 @@
-package com.github.ancient_forgery.render.block.entity;
+package com.github.ancient_forgery.data.render.block.entity;
 
 import com.github.ancient_forgery.data.block.entity.SuspiciousSoulSandEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.WorldRenderer;
@@ -14,6 +16,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.RotationAxis;
 
+@Environment(EnvType.CLIENT)
 public class SuspiciousSoulSandEntityRenderer implements BlockEntityRenderer<SuspiciousSoulSandEntity> {
     private final ItemRenderer itemRenderer;
 

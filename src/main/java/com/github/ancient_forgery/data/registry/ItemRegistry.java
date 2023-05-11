@@ -10,15 +10,16 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import static com.github.ancient_forgery.data.registry.BlockRegistry.SUSPICIOUS_SOUL_SAND;
 
-public class ItemRegistry {
+public class ItemRegistry implements com.github.ancient_forgery.data.registry.Registry {
 
-    public static final BlockItem SUSPICIOUS_SOUL_SAND_ITEM;
-    public static final TestBrush TEST_BRUSH;
-    public static final Item PARROT_FEATHER;
+    public static final BlockItem SUSPICIOUS_SOUL_SAND_ITEM = new BlockItem(SUSPICIOUS_SOUL_SAND, new Item.Settings());
+    public static final TestBrush TEST_BRUSH = new TestBrush(new FabricItemSettings().rarity(Rarity.EPIC));
+    public static final Item PARROT_FEATHER = new Item(new FabricItemSettings());
 
-    static {
-        SUSPICIOUS_SOUL_SAND_ITEM = Registry.register(Registries.ITEM, new Identifier("ancient-forgery", "suspicious_soul_sand"), new BlockItem(SUSPICIOUS_SOUL_SAND, new Item.Settings()));
-        TEST_BRUSH = Registry.register(Registries.ITEM, new Identifier("ancient-forgery", "test_brush"), new TestBrush(new FabricItemSettings().rarity(Rarity.EPIC)));
-        PARROT_FEATHER = Registry.register(Registries.ITEM, new Identifier("ancient-forgery", "parrot_feather"), new Item(new FabricItemSettings()));
+    @Override
+    public void register() {
+        Registry.register(Registries.ITEM, new Identifier("ancient-forgery", "suspicious_soul_sand"), SUSPICIOUS_SOUL_SAND_ITEM);
+        Registry.register(Registries.ITEM, new Identifier("ancient-forgery", "test_brush"), TEST_BRUSH);
+        Registry.register(Registries.ITEM, new Identifier("ancient-forgery", "parrot_feather"), PARROT_FEATHER);
     }
 }
