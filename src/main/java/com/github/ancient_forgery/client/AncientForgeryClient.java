@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 public class AncientForgeryClient implements ClientModInitializer {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger("ancient_frogery");
+    public static final Logger LOGGER = LoggerFactory.getLogger("ancient_forgery");
     public static final Registry[] REGISTRIES = new Registry[]{
             new BlockEntityRegistry(),
             new BlockEntityRendererRegistry()
