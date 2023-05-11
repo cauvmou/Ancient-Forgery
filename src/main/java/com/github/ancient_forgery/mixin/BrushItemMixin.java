@@ -1,5 +1,6 @@
 package com.github.ancient_forgery.mixin;
 
+import com.github.ancient_forgery.data.block.entity.AFBrushableBlockEntity;
 import com.github.ancient_forgery.data.block.entity.SuspiciousSoulSandEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -55,10 +56,10 @@ public abstract class BrushItemMixin {
                         world.playSound(playerEntity, blockPos, soundEvent, SoundCategory.BLOCKS);
                         if (!world.isClient()) {
                             BlockEntity var18 = world.getBlockEntity(blockPos);
-                            if (var18 instanceof BrushableBlockEntity || var18 instanceof SuspiciousSoulSandEntity) {
+                            if (var18 instanceof BrushableBlockEntity || var18 instanceof AFBrushableBlockEntity) {
                                 boolean bl2;
                                 if (var18 instanceof BrushableBlockEntity blockEntity) bl2 = blockEntity.brush(world.getTime(), playerEntity, blockHitResult.getSide());
-                                else bl2 = ((SuspiciousSoulSandEntity) var18).brush(world.getTime(), playerEntity, blockHitResult.getSide());
+                                else bl2 = ((AFBrushableBlockEntity) var18).brush(world.getTime(), playerEntity, blockHitResult.getSide());
                                 if (bl2) {
                                     EquipmentSlot equipmentSlot = stack.equals(playerEntity.getEquippedStack(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
                                     stack.damage(1, user, (userx) -> {
