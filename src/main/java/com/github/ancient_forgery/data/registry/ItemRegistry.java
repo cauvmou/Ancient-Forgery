@@ -22,6 +22,9 @@ public class ItemRegistry implements AFRegistry {
     public static final Item FAKE_FLETCHING_TABLE_ITEM = new BlockItem(
             FAKE_FLETCHING_TABLE,
             new Item.Settings());
+    public static final Item CANDELABRA_ITEM = new BlockItem(
+            CANDELABRA,
+            new Item.Settings());
     public static final Item TEST_BRUSH = new TestBrush(
             new FabricItemSettings()
                     .rarity(Rarity.EPIC));
@@ -45,5 +48,8 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier("ancient_forgery", "fake_fletching_table"),
                 FAKE_FLETCHING_TABLE_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier("ancient_forgery", "candelabra"),
+                CANDELABRA_ITEM);
     }
 }
