@@ -8,6 +8,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import static com.github.ancient_forgery.data.registry.BlockRegistry.FAKE_FLETCHING_TABLE;
+
 public class BlockEntityRegistry implements com.github.ancient_forgery.data.registry.Registry {
 
     public static final BlockEntityType<SuspiciousSoulSandEntity> SUSPICIOUS_SOUL_SAND_ENTITY = FabricBlockEntityTypeBuilder.create(SuspiciousSoulSandEntity::new, BlockRegistry.SUSPICIOUS_SOUL_SAND).build();
@@ -15,8 +17,12 @@ public class BlockEntityRegistry implements com.github.ancient_forgery.data.regi
 
     @Override
     public void register() {
-        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("ancient_forgery", "suspicious_soul_sand"), SUSPICIOUS_SOUL_SAND_ENTITY);
-        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("ancient_forgery", "fletching_table"), FLETCHING_TABLE);
+        Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier("ancient_forgery", "suspicious_soul_sand"),
+                SUSPICIOUS_SOUL_SAND_ENTITY);
+        Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier("ancient_forgery", "fake_fletching_table"),
+                FLETCHING_TABLE);
     }
 
 

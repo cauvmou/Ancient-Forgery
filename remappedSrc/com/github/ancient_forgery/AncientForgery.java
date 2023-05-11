@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AncientForgery implements ModInitializer {
-    public static final Logger LOGGER = LoggerFactory.getLogger("ancient_frogery");
+    public static final Logger LOGGER = LoggerFactory.getLogger("ancient_forgery");
 
     @Override
     public void onInitialize() {
