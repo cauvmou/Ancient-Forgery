@@ -9,6 +9,6 @@ public class BlockEntityRendererRegistry implements Registry {
 
     @Override
     public void registerClient() {
-
+        BlockEntityRendererFactories.register(BlockEntityRegistry.SUSPICIOUS_SOUL_SAND_ENTITY, SuspiciousSoulSandEntityRenderer::new);
     }
 }

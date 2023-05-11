@@ -1,4 +1,4 @@
-package com.github.ancient_forgery;
+package com.github.ancient_forgery.client;
 
 import com.github.ancient_forgery.data.registry.*;
 import net.fabricmc.api.ClientModInitializer;

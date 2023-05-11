@@ -33,7 +33,6 @@ import org.slf4j.Logger;
 import java.util.Objects;
 import com.github.ancient_forgery.data.registry.BlockEntityRegistry;
 
-@Environment(EnvType.SERVER)
 public class SuspiciousSoulSandEntity extends BlockEntity {
     private static final Logger field_42801 = LogUtils.getLogger();
     private static final String LOOT_TABLE_NBT_KEY = "LootTable";

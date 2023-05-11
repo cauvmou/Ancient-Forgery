@@ -45,7 +45,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ancient-forgery:parrot_feather"
+          "name": "ancient_forgery:parrot_feather"
         }
       ],
       "rolls": 1

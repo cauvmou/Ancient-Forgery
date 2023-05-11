@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "ancient-forgery:block/bone_pile_1"
+      "model": "ancient_forgery:block/bone_pile_1"
     },
     "facing=south": {
-      "model": "ancient-forgery:block/bone_pile_1",
+      "model": "ancient_forgery:block/bone_pile_1",
       "y": 180
     },
     "facing=west": {
-      "model": "ancient-forgery:block/bone_pile_1",
+      "model": "ancient_forgery:block/bone_pile_1",
       "y": 270
     },
     "facing=east": {
-      "model": "ancient-forgery:block/bone_pile_1",
+      "model": "ancient_forgery:block/bone_pile_1",
       "y": 90
     }
   }

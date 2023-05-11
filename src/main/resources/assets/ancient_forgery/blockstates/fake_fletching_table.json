@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "ancient-forgery:block/fake_fletching_table" }
+    "": { "model": "ancient_forgery:block/fake_fletching_table" }
   }
 }

@@ -3,8 +3,8 @@
 	"parent": "block/cube_all",
 
 	"textures": {
-		"0": "ancient-forgery:block/test_texture",
-		"particle": "ancient-forgery:block/test_texture"
+		"0": "ancient_forgery:block/test_texture",
+		"particle": "ancient_forgery:block/test_texture"
 	},
 	"elements": [
 		{

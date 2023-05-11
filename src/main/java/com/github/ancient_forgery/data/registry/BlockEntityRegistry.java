@@ -17,13 +17,9 @@ public class BlockEntityRegistry implements com.github.ancient_forgery.data.regi
 
     @Override
     public void register() {
-        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("ancient-forgery", "suspicious_soul_sand"), SUSPICIOUS_SOUL_SAND_ENTITY);
-        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("ancient-forgery", "fletching_table"), FLETCHING_TABLE);
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("ancient_forgery", "suspicious_soul_sand"), SUSPICIOUS_SOUL_SAND_ENTITY);
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("ancient_forgery", "fletching_table"), FLETCHING_TABLE);
     }
 
-    @Override
-    public void registerClient() {
-        BlockEntityRendererFactories.register(SUSPICIOUS_SOUL_SAND_ENTITY, SuspiciousSoulSandEntityRenderer::new);
-    }
 
 }

@@ -20,8 +20,8 @@ public class BlockRegistry {
     public static final BlockItem SUSPICIOUS_SOUL_SAND_ITEM;
 
     static {
-        SUSPICIOUS_SOUL_SAND = net.minecraft.registry.Registry.register(Registries.BLOCK, new Identifier("ancient-forgery", "suspicious_soul_sand"), new SuspiciousSoulSand(Blocks.SOUL_SAND, FabricBlockSettings.copyOf(Blocks.SOUL_SAND), SoundEvent.of(Identifier.of("minecraft", "item.brush.brushing.sand")), SoundEvent.of(Identifier.of("minecraft", "item.brush.brushing.sand.complete"))));
-        SUSPICIOUS_SOUL_SAND_ENTITY = net.minecraft.registry.Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("ancient-forgery", "suspicious_soul_sand"), FabricBlockEntityTypeBuilder.create(SuspiciousSoulSandEntity::new, SUSPICIOUS_SOUL_SAND).build());
-        SUSPICIOUS_SOUL_SAND_ITEM = Registry.register(Registries.ITEM, new Identifier("ancient-forgery", "suspicious_soul_sand"), new BlockItem(SUSPICIOUS_SOUL_SAND, new Item.Settings()));
+        SUSPICIOUS_SOUL_SAND = net.minecraft.registry.Registry.register(Registries.BLOCK, new Identifier("ancient_forgery", "suspicious_soul_sand"), new SuspiciousSoulSand(Blocks.SOUL_SAND, FabricBlockSettings.copyOf(Blocks.SOUL_SAND), SoundEvent.of(Identifier.of("minecraft", "item.brush.brushing.sand")), SoundEvent.of(Identifier.of("minecraft", "item.brush.brushing.sand.complete"))));
+        SUSPICIOUS_SOUL_SAND_ENTITY = net.minecraft.registry.Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("ancient_forgery", "suspicious_soul_sand"), FabricBlockEntityTypeBuilder.create(SuspiciousSoulSandEntity::new, SUSPICIOUS_SOUL_SAND).build());
+        SUSPICIOUS_SOUL_SAND_ITEM = Registry.register(Registries.ITEM, new Identifier("ancient_forgery", "suspicious_soul_sand"), new BlockItem(SUSPICIOUS_SOUL_SAND, new Item.Settings()));
     }
 }

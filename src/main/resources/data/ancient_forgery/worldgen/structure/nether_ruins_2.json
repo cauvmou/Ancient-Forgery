@@ -1,7 +1,7 @@
 {
   "type": "minecraft:jigsaw",
-  "start_pool": "ancient-forgery:nether_ruins_1/start_pool",
-  "biomes": "#ancient-forgery:has_structure/nether_ruins_1",
+  "start_pool": "ancient_forgery:nether_ruins_2/start_pool",
+  "biomes": "#ancient_forgery:has_structure/nether_ruins_2",
   "step": "underground_decoration",
   "height": {
     "type": "minecraft:uniform",

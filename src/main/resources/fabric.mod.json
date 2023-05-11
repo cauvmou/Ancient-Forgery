@@ -18,13 +18,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.github.ancient_forgery.AncientForgery"
+			"com.github.ancient_forgery.main.AncientForgery"
 		],
 		"client": [
-			"com.github.ancient_forgery.AncientForgeryClient"
+			"com.github.ancient_forgery.client.AncientForgeryClient"
 		],
 		"fabric-datagen": [
-			"com.github.ancient_forgery.AncientForgeryDataGenerator"
+			"com.github.ancient_forgery.data.AncientForgeryDataGenerator"
 		]
 	},
 	"mixins": [

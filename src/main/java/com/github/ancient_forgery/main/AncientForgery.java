@@ -1,4 +1,4 @@
-package com.github.ancient_forgery;
+package com.github.ancient_forgery.main;
 
 import com.github.ancient_forgery.data.registry.BlockEntityRegistry;
 import com.github.ancient_forgery.data.registry.BlockRegistry;

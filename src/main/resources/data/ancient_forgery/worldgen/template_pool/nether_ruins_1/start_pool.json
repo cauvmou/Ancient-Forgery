@@ -1,11 +1,11 @@
 {
-  "name": "ancient-forgery:nether_ruins_2/start_pool",
+  "name": "ancient_forgery:nether_ruins_1/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "ancient-forgery:nether_ruins_2",
+        "location": "ancient_forgery:nether_ruins_1",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
