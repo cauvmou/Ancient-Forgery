@@ -1,5 +1,6 @@
 package com.github.ancient_forgery.data.render.block.entity;
 
+import com.github.ancient_forgery.data.block.entity.AFBrushableBlockEntity;
 import com.github.ancient_forgery.data.block.entity.SuspiciousSoulSandEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -17,17 +18,14 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.RotationAxis;
 
 @Environment(EnvType.CLIENT)
-public class SuspiciousSoulSandEntityRenderer implements BlockEntityRenderer<SuspiciousSoulSandEntity> {
+public class AFBrushableEntityRenderer implements BlockEntityRenderer<AFBrushableBlockEntity> {
     private final ItemRenderer itemRenderer;
 
-    public SuspiciousSoulSandEntityRenderer(BlockEntityRendererFactory.Context context) {
+    public AFBrushableEntityRenderer(BlockEntityRendererFactory.Context context) {
         this.itemRenderer = context.getItemRenderer();
     }
 
-    public void render(SuspiciousSoulSandEntity brushableBlockEntity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j) {
-        /*MinecraftClient.getInstance().world.getPlayers().forEach(
-                playerEntity -> playerEntity.sendMessage(Text.literal("SOMETHING"))
-        );*/
+    public void render(AFBrushableBlockEntity brushableBlockEntity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j) {
         if (brushableBlockEntity.getWorld() != null) {
             int k = (Integer) brushableBlockEntity.getCachedState().get(Properties.DUSTED);
             if (k > 0) {

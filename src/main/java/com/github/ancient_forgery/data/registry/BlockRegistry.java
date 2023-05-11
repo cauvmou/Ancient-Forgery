@@ -3,19 +3,22 @@ package com.github.ancient_forgery.data.registry;
 import com.github.ancient_forgery.data.block.custom.BonePileBlock;
 import com.github.ancient_forgery.data.block.custom.CandelabraBlock;
 import com.github.ancient_forgery.data.block.custom.FakeFletchingTableBlock;
-import com.github.ancient_forgery.data.block.custom.SuspiciousSoulSand;
+import com.github.ancient_forgery.data.block.custom.SuspiciousSoulSandBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagBuilder;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
-public class BlockRegistry implements com.github.ancient_forgery.data.registry.Registry {
+public class BlockRegistry implements AFRegistry {
 
-    public static final Block SUSPICIOUS_SOUL_SAND = new SuspiciousSoulSand(
+    public static final Block SUSPICIOUS_SOUL_SAND = new SuspiciousSoulSandBlock(
             Blocks.SOUL_SAND,
             FabricBlockSettings.copyOf(Blocks.SOUL_SAND),
             SoundEvent.of(Identifier.of("minecraft", "item.brush.brushing.sand")),

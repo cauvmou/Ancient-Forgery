@@ -30,7 +30,6 @@ public class AncientForgeryDataGenerator implements DataGeneratorEntrypoint {
 
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-
 		fabricDataGenerator.createPack().addProvider((output, registriesFuture) -> new SoulFireTagGenerator(output, Registries.BLOCK.getKey(), registriesFuture));
 	}
 }

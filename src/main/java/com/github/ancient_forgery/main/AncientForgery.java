@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class AncientForgery implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("ancient_forgery");
-    public static final Registry[] REGISTRIES = new Registry[]{
+    public static final AFRegistry[] REGISTRIES = new AFRegistry[]{
             new BlockRegistry(),
             new BlockEntityRegistry(),
             new ItemRegistry(),
@@ -19,7 +19,7 @@ public class AncientForgery implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("Hello Fabric world!");
 
-        for (Registry r : REGISTRIES) {
+        for (AFRegistry r : REGISTRIES) {
             r.register();
         }
     }
