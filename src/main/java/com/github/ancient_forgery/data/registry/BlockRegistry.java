@@ -2,19 +2,18 @@ package com.github.ancient_forgery.data.registry;
 
 import com.github.ancient_forgery.data.block.custom.BonePileBlock;
 import com.github.ancient_forgery.data.block.custom.CandelabraBlock;
-import com.github.ancient_forgery.data.block.custom.FakeFletchingTableBlock;
 import com.github.ancient_forgery.data.block.custom.SuspiciousSoulSandBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
-import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagBuilder;
-import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class BlockRegistry implements AFRegistry {
 
@@ -28,8 +27,6 @@ public class BlockRegistry implements AFRegistry {
                     .strength(2f)
                     .requiresTool()
                     .nonOpaque());
-    public static final Block FAKE_FLETCHING_TABLE = new FakeFletchingTableBlock(
-            FabricBlockSettings.copyOf(Blocks.FLETCHING_TABLE));
 
     public static final Block CANDELABRA = createCandelabraBlock(MapColor.PALE_YELLOW);
     public static final Block WHITE_CANDELABRA = createCandelabraBlock(MapColor.WHITE_GRAY);
@@ -48,6 +45,11 @@ public class BlockRegistry implements AFRegistry {
     public static final Block PURPLE_CANDELABRA = createCandelabraBlock(MapColor.PURPLE);
     public static final Block MAGENTA_CANDELABRA = createCandelabraBlock(MapColor.MAGENTA);
     public static final Block PINK_CANDELABRA = createCandelabraBlock(MapColor.PINK);
+    public static final List<Block> CANDELABRA_LIST = new ArrayList<>(Arrays.asList(
+            CANDELABRA, WHITE_CANDELABRA, LIGHT_GRAY_CANDELABRA, GRAY_CANDELABRA, BLACK_CANDELABRA, BROWN_CANDELABRA,
+            RED_CANDELABRA, ORANGE_CANDELABRA, YELLOW_CANDELABRA, LIME_CANDELABRA, GREEN_CANDELABRA, CYAN_CANDELABRA,
+            LIGHT_BLUE_CANDELABRA, BLUE_CANDELABRA, PURPLE_CANDELABRA, MAGENTA_CANDELABRA, PINK_CANDELABRA
+    ));
 
     private static CandelabraBlock createCandelabraBlock(MapColor color) {
         return new CandelabraBlock(
@@ -66,9 +68,6 @@ public class BlockRegistry implements AFRegistry {
         Registry.register(Registries.BLOCK,
                 new Identifier("ancient_forgery", "bone_pile_1"),
                 BONE_PILE);
-        Registry.register(Registries.BLOCK,
-                new Identifier("ancient_forgery", "fake_fletching_table"),
-                FAKE_FLETCHING_TABLE);
         Registry.register(Registries.BLOCK,
                 new Identifier("ancient_forgery", "candelabra"),
                 CANDELABRA);

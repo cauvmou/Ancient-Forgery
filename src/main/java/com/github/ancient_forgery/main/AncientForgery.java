@@ -12,7 +12,8 @@ public class AncientForgery implements ModInitializer {
             new BlockRegistry(),
             new BlockEntityRegistry(),
             new ItemRegistry(),
-            new ScreenRegistry()
+            new ScreenRegistry(),
+            new ItemGroupRegistry()
     };
 
     @Override
