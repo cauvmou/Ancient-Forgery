@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(FlintAndSteelItem.class)
 public abstract class FlintAndSteelItemMixin {
-    @Inject(at = @At("HEAD"), method = "Lnet/minecraft/item/FlintAndSteelItem;useOnBlock(Lnet/minecraft/item/ItemUsageContext;)Lnet/minecraft/util/ActionResult;")
+    @Inject(at = @At("HEAD"), method = "Lnet/minecraft/item/FlintAndSteelItem;useOnBlock(Lnet/minecraft/item/ItemUsageContext;)Lnet/minecraft/util/ActionResult;", cancellable = true)
     public void useOnBlock(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
         PlayerEntity playerEntity = context.getPlayer();
         World world = context.getWorld();

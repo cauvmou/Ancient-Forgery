@@ -80,12 +80,17 @@ loom {
 		//
 		// This adds a new gradle task that runs the datagen API: "gradlew runDatagenClient"
 		//
+		client {
+			vmArg "-Dgeckolib.disable_examples=true"
+		}
+
 		datagenClient {
 			inherit client
 			name "Data Generation"
 			vmArg "-Dfabric-api.datagen"
 			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
 			vmArg "-Dfabric-api.datagen.modid=${archives_base_name}"
+			vmArg "-Dgeckolib.disable_examples=true"
 
 			runDir "build/datagen"
 		}
