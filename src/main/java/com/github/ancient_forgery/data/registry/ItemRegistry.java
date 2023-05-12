@@ -1,5 +1,6 @@
 package com.github.ancient_forgery.data.registry;
 
+import com.github.ancient_forgery.data.item.custom.LongBowItem;
 import com.github.ancient_forgery.data.item.custom.TestBrush;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
@@ -19,9 +20,6 @@ public class ItemRegistry implements AFRegistry {
             new Item.Settings());
     public static final Item BONE_PILE_ITEM = new BlockItem(
             BONE_PILE,
-            new Item.Settings());
-    public static final Item FAKE_FLETCHING_TABLE_ITEM = new BlockItem(
-            FAKE_FLETCHING_TABLE,
             new Item.Settings());
     public static final Item CANDELABRA_ITEM = new BlockItem(
             CANDELABRA,
@@ -80,6 +78,12 @@ public class ItemRegistry implements AFRegistry {
     public static final Item PARROT_FEATHER = new Item(
             new FabricItemSettings());
 
+    public static final Item COPPER_NUGGET = new Item(
+            new FabricItemSettings());
+
+    public static final Item LONGBOW = new LongBowItem(
+            new FabricItemSettings().maxDamage(384));
+
     @Override
     public void register() {
         Registry.register(Registries.ITEM,
@@ -94,9 +98,6 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "bone_pile_1"),
                 BONE_PILE_ITEM);
-        Registry.register(Registries.ITEM,
-                new Identifier(MOD_ID, "fake_fletching_table"),
-                FAKE_FLETCHING_TABLE_ITEM);
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "candelabra"),
                 CANDELABRA_ITEM);
@@ -148,5 +149,11 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "pink_candelabra"),
                 PINK_CANDELABRA_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "longbow"),
+                LONGBOW);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "copper_nugget"),
+                COPPER_NUGGET);
     }
 }

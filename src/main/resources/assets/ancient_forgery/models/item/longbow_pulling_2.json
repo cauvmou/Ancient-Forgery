@@ -1,0 +1,6 @@
+{
+  "parent": "ancient_forgery:item/longbow",
+  "textures": {
+    "layer0": "ancient_forgery:item/longbow_pulling_2"
+  }
+}

@@ -19,5 +19,6 @@ public class AncientForgeryClient implements ClientModInitializer {
         for (AFRegistry r : REGISTRIES) {
             r.registerClient();
         }
+        ModModelPredicateProvider.registerModModels();
     }
 }
