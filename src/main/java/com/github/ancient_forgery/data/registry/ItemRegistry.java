@@ -81,7 +81,7 @@ public class ItemRegistry implements AFRegistry {
             new FabricItemSettings());
 
     public static final Item LONGBOW = new LongBowItem(
-            new FabricItemSettings());
+            new FabricItemSettings().maxDamage(384));
 
     @Override
     public void register() {

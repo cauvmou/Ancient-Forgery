@@ -9,12 +9,11 @@ import net.minecraft.item.*;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 public class LongBowItem extends BowItem {
-    public static final int TICKS_PER_SECOND = 25;
-    public static final int RANGE = 200;
+    public static final int TICKS_PER_SECOND = 30;
+    public static final int RANGE = 20;
     public LongBowItem(Item.Settings settings){super(settings);}
 
 
@@ -40,12 +39,12 @@ public class LongBowItem extends BowItem {
         }
         boolean bl3 = bl2 = bl && itemStack.isOf(Items.ARROW);
         if (!world.isClient) {
-            world.getPlayers().get(0).sendMessage(Text.of(f+""));
             int k;
             int j;
             ArrowItem arrowItem = (ArrowItem)(itemStack.getItem() instanceof ArrowItem ? itemStack.getItem() : Items.ARROW);
             PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, itemStack, playerEntity);
-            persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 4.0f, 1.0f);
+            persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * RANGE/5, 1.0f);
+            persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + 0.5);
             if (f == 1.0f) {
                 persistentProjectileEntity.setCritical(true);
             }
@@ -83,7 +82,11 @@ public class LongBowItem extends BowItem {
     }
 
     @Override
+    public int getMaxUseTime(ItemStack stack) {
+        return TICKS_PER_SECOND * 3600;
+    }
+    @Override
     public int getRange(){
         return RANGE;
-    };
+    }
 }
