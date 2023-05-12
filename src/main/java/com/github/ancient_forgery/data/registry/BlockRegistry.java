@@ -16,6 +16,10 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class BlockRegistry implements AFRegistry {
 
     public static final Block SUSPICIOUS_SOUL_SAND = new SuspiciousSoulSandBlock(
@@ -48,6 +52,11 @@ public class BlockRegistry implements AFRegistry {
     public static final Block PURPLE_CANDELABRA = createCandelabraBlock(MapColor.PURPLE);
     public static final Block MAGENTA_CANDELABRA = createCandelabraBlock(MapColor.MAGENTA);
     public static final Block PINK_CANDELABRA = createCandelabraBlock(MapColor.PINK);
+    public static final List<Block> CANDELABRA_LIST = new ArrayList<>(Arrays.asList(
+            CANDELABRA, WHITE_CANDELABRA, LIGHT_GRAY_CANDELABRA, GRAY_CANDELABRA, BLACK_CANDELABRA, BROWN_CANDELABRA,
+            RED_CANDELABRA, ORANGE_CANDELABRA, YELLOW_CANDELABRA, LIME_CANDELABRA, GREEN_CANDELABRA, CYAN_CANDELABRA,
+            LIGHT_BLUE_CANDELABRA, BLUE_CANDELABRA, PURPLE_CANDELABRA, MAGENTA_CANDELABRA, PINK_CANDELABRA
+    ));
 
     private static CandelabraBlock createCandelabraBlock(MapColor color) {
         return new CandelabraBlock(

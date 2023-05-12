@@ -79,6 +79,9 @@ public class ItemRegistry implements AFRegistry {
     public static final Item PARROT_FEATHER = new Item(
             new FabricItemSettings());
 
+    public static final Item COPPER_NUGGET = new Item(
+            new FabricItemSettings());
+
     @Override
     public void register() {
         Registry.register(Registries.ITEM,
@@ -147,5 +150,8 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier("ancient_forgery", "pink_candelabra"),
                 PINK_CANDELABRA_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier("ancient_forgery", "copper_nugget"),
+                COPPER_NUGGET);
     }
 }

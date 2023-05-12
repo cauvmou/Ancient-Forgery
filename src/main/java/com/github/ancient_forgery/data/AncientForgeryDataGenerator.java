@@ -44,6 +44,8 @@ public class AncientForgeryDataGenerator implements DataGeneratorEntrypoint {
 					.add(BlockRegistry.PURPLE_CANDELABRA)
 					.add(BlockRegistry.MAGENTA_CANDELABRA)
 					.add(BlockRegistry.PINK_CANDELABRA);
+
+
 		}
 	}
 

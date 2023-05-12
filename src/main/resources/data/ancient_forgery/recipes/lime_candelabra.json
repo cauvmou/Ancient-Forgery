@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:lime_candle"
+    },
+    "N": {
+      "item": "ancient_forgery:copper_nugget"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "NNN",
+    " N "
+  ],
+  "result": {
+    "item": "ancient_forgery:lime_candelabra"
+  },
+  "show_notification": true
+}
