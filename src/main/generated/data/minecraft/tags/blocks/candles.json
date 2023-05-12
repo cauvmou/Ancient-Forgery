@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "ancient_forgery:candelabra",
+    "ancient_forgery:white_candelabra",
+    "ancient_forgery:light_gray_candelabra",
+    "ancient_forgery:gray_candelabra",
+    "ancient_forgery:black_candelabra",
+    "ancient_forgery:brown_candelabra",
+    "ancient_forgery:red_candelabra",
+    "ancient_forgery:orange_candelabra",
+    "ancient_forgery:yellow_candelabra",
+    "ancient_forgery:lime_candelabra",
+    "ancient_forgery:green_candelabra",
+    "ancient_forgery:cyan_candelabra",
+    "ancient_forgery:light_blue_candelabra",
+    "ancient_forgery:blue_candelabra",
+    "ancient_forgery:purple_candelabra",
+    "ancient_forgery:magenta_candelabra",
+    "ancient_forgery:pink_candelabra"
+  ]
+}

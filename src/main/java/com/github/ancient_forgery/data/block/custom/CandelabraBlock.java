@@ -9,6 +9,8 @@ import net.minecraft.block.enums.Attachment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -24,6 +26,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.dimension.DimensionType;
 import org.jetbrains.annotations.Nullable;
@@ -32,8 +35,10 @@ import java.awt.*;
 import java.util.List;
 import java.util.function.ToIntFunction;
 
-public class CandelabraBlock extends AbstractCandleBlock {
+public class CandelabraBlock extends AbstractCandleBlock implements Cloneable {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final ToIntFunction<BlockState> STATE_TO_LUMINANCE = (state)
+            -> state.get(LIT) ? 9 : 0;
 
     public CandelabraBlock(Settings settings) {
         super(settings);
@@ -64,14 +69,20 @@ public class CandelabraBlock extends AbstractCandleBlock {
         }
     }
 
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (player.getAbilities().allowModifyWorld && player.getStackInHand(hand).isEmpty() && state.get(LIT)) {
+            extinguish(player, state, world, pos);
+            return ActionResult.success(world.isClient);
+        } else {
+            return ActionResult.PASS;
+        }
+    }
+
     public static boolean canBeLit(BlockState state) {
-        /*
         return state.isIn(BlockTags.CANDLES, (statex)
                 -> statex.contains(LIT))
-                && !(Boolean)state.get(LIT);
-
-         */
-        return state.isIn(BlockTags.CANDLES);
+                && !state.get(LIT);
     }
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
@@ -104,5 +115,14 @@ public class CandelabraBlock extends AbstractCandleBlock {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING, LIT);
+    }
+
+    @Override
+    public CandelabraBlock clone() {
+        try {
+            return (CandelabraBlock) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

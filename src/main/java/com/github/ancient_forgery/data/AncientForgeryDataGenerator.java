@@ -27,7 +27,23 @@ public class AncientForgeryDataGenerator implements DataGeneratorEntrypoint {
 			getOrCreateTagBuilder(SOUL_FIRE_BASE_BLOCKS)
 					.add(BlockRegistry.SUSPICIOUS_SOUL_SAND);
 			getOrCreateTagBuilder(CANDLES)
-					.add(BlockRegistry.CANDELABRA);
+					.add(BlockRegistry.CANDELABRA)
+					.add(BlockRegistry.WHITE_CANDELABRA)
+					.add(BlockRegistry.LIGHT_GRAY_CANDELABRA)
+					.add(BlockRegistry.GRAY_CANDELABRA)
+					.add(BlockRegistry.BLACK_CANDELABRA)
+					.add(BlockRegistry.BROWN_CANDELABRA)
+					.add(BlockRegistry.RED_CANDELABRA)
+					.add(BlockRegistry.ORANGE_CANDELABRA)
+					.add(BlockRegistry.YELLOW_CANDELABRA)
+					.add(BlockRegistry.LIME_CANDELABRA)
+					.add(BlockRegistry.GREEN_CANDELABRA)
+					.add(BlockRegistry.CYAN_CANDELABRA)
+					.add(BlockRegistry.LIGHT_BLUE_CANDELABRA)
+					.add(BlockRegistry.BLUE_CANDELABRA)
+					.add(BlockRegistry.PURPLE_CANDELABRA)
+					.add(BlockRegistry.MAGENTA_CANDELABRA)
+					.add(BlockRegistry.PINK_CANDELABRA);
 		}
 	}
 

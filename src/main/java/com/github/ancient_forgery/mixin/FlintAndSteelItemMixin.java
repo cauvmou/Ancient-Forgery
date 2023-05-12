@@ -1,5 +1,6 @@
 package com.github.ancient_forgery.mixin;
 
+import com.github.ancient_forgery.data.block.custom.CandelabraBlock;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -7,6 +8,7 @@ import net.minecraft.item.BrushItem;
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -50,7 +52,7 @@ public abstract class FlintAndSteelItemMixin {
             }
         } else {
             world.playSound(playerEntity, blockPos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, world.getRandom().nextFloat() * 0.4F + 0.8F);
-            world.setBlockState(blockPos, (BlockState)blockState.with(Properties.LIT, true), 11);
+            world.setBlockState(blockPos, blockState.with(Properties.LIT, true), 11);
             world.emitGameEvent(playerEntity, GameEvent.BLOCK_CHANGE, blockPos);
             if (playerEntity != null) {
                 context.getStack().damage(1, playerEntity, (p) -> {
