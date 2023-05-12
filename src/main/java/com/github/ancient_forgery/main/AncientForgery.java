@@ -8,11 +8,13 @@ import org.slf4j.LoggerFactory;
 
 public class AncientForgery implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("ancient_forgery");
+    public static final String MOD_ID = "ancient_forgery";
     public static final AFRegistry[] REGISTRIES = new AFRegistry[]{
             new BlockRegistry(),
             new BlockEntityRegistry(),
             new ItemRegistry(),
-            new ScreenRegistry()
+            new ScreenRegistry(),
+            new EntityRegistry(),
     };
 
     @Override

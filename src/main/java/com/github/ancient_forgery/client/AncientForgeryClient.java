@@ -10,7 +10,8 @@ public class AncientForgeryClient implements ClientModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("ancient_forgery");
     public static final AFRegistry[] REGISTRIES = new AFRegistry[]{
             new BlockEntityRegistry(),
-            new BlockEntityRendererRegistry()
+            new BlockEntityRendererRegistry(),
+            new GeoEntityRendererRegistry(),
     };
 
     @Override

@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
 import static com.github.ancient_forgery.data.registry.BlockRegistry.*;
+import static com.github.ancient_forgery.main.AncientForgery.MOD_ID;
 
 public class ItemRegistry implements AFRegistry {
 
@@ -82,70 +83,70 @@ public class ItemRegistry implements AFRegistry {
     @Override
     public void register() {
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "suspicious_soul_sand"),
+                new Identifier(MOD_ID, "suspicious_soul_sand"),
                 SUSPICIOUS_SOUL_SAND_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "test_brush"),
+                new Identifier(MOD_ID, "test_brush"),
                 TEST_BRUSH);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "parrot_feather"),
+                new Identifier(MOD_ID, "parrot_feather"),
                 PARROT_FEATHER);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "bone_pile_1"),
+                new Identifier(MOD_ID, "bone_pile_1"),
                 BONE_PILE_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "fake_fletching_table"),
+                new Identifier(MOD_ID, "fake_fletching_table"),
                 FAKE_FLETCHING_TABLE_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "candelabra"),
+                new Identifier(MOD_ID, "candelabra"),
                 CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "white_candelabra"),
+                new Identifier(MOD_ID, "white_candelabra"),
                 WHITE_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "light_gray_candelabra"),
+                new Identifier(MOD_ID, "light_gray_candelabra"),
                 LIGHT_GRAY_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "gray_candelabra"),
+                new Identifier(MOD_ID, "gray_candelabra"),
                 GRAY_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "black_candelabra"),
+                new Identifier(MOD_ID, "black_candelabra"),
                 BLACK_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "brown_candelabra"),
+                new Identifier(MOD_ID, "brown_candelabra"),
                 BROWN_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "red_candelabra"),
+                new Identifier(MOD_ID, "red_candelabra"),
                 RED_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "orange_candelabra"),
+                new Identifier(MOD_ID, "orange_candelabra"),
                 ORANGE_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "yellow_candelabra"),
+                new Identifier(MOD_ID, "yellow_candelabra"),
                 YELLOW_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "lime_candelabra"),
+                new Identifier(MOD_ID, "lime_candelabra"),
                 LIME_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "green_candelabra"),
+                new Identifier(MOD_ID, "green_candelabra"),
                 GREEN_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "cyan_candelabra"),
+                new Identifier(MOD_ID, "cyan_candelabra"),
                 CYAN_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "light_blue_candelabra"),
+                new Identifier(MOD_ID, "light_blue_candelabra"),
                 LIGHT_BLUE_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "blue_candelabra"),
+                new Identifier(MOD_ID, "blue_candelabra"),
                 BLUE_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "purple_candelabra"),
+                new Identifier(MOD_ID, "purple_candelabra"),
                 PURPLE_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "magenta_candelabra"),
+                new Identifier(MOD_ID, "magenta_candelabra"),
                 MAGENTA_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "pink_candelabra"),
+                new Identifier(MOD_ID, "pink_candelabra"),
                 PINK_CANDELABRA_ITEM);
     }
 }
