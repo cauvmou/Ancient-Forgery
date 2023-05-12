@@ -19,9 +19,6 @@ public class ItemRegistry implements AFRegistry {
     public static final Item BONE_PILE_ITEM = new BlockItem(
             BONE_PILE,
             new Item.Settings());
-    public static final Item FAKE_FLETCHING_TABLE_ITEM = new BlockItem(
-            FAKE_FLETCHING_TABLE,
-            new Item.Settings());
     public static final Item CANDELABRA_ITEM = new BlockItem(
             CANDELABRA,
             new Item.Settings());
@@ -96,9 +93,6 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier("ancient_forgery", "bone_pile_1"),
                 BONE_PILE_ITEM);
-        Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "fake_fletching_table"),
-                FAKE_FLETCHING_TABLE_ITEM);
         Registry.register(Registries.ITEM,
                 new Identifier("ancient_forgery", "candelabra"),
                 CANDELABRA_ITEM);
