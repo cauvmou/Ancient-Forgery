@@ -50,8 +50,8 @@ public class CandelabraBlock extends AbstractCandleBlock {
         }
     }
 
-    private static VoxelShape NORTH_SHAPE = Block.createCuboidShape(1, 0, 6, 15, 16, 10);
-    private static VoxelShape EAST_SHAPE = Block.createCuboidShape(6, 0, 1, 10, 16, 15);
+    private static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(1, 0, 6, 15, 16, 10);
+    private static final VoxelShape EAST_SHAPE = Block.createCuboidShape(6, 0, 1, 10, 16, 15);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -65,9 +65,13 @@ public class CandelabraBlock extends AbstractCandleBlock {
     }
 
     public static boolean canBeLit(BlockState state) {
+        /*
         return state.isIn(BlockTags.CANDLES, (statex)
                 -> statex.contains(LIT))
                 && !(Boolean)state.get(LIT);
+
+         */
+        return state.isIn(BlockTags.CANDLES);
     }
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
