@@ -3,9 +3,9 @@
 	"parent": "block/cube_all",
 	"texture_size": [16, 16],
 	"textures": {
-		"0": "block/gold_block",
+		"0": "block/copper_block",
 		"1": "block/candle_lit",
-		"particle": "block/gold_block"
+		"particle": "block/copper_block"
 	},
 	"elements": [
 		{
