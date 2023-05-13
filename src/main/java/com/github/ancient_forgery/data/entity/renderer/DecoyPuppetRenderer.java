@@ -9,6 +9,4 @@ public class DecoyPuppetRenderer extends GeoEntityRenderer<DecoyPuppetEntity> {
     public DecoyPuppetRenderer(EntityRendererFactory.Context renderManager) {
         super(renderManager, new DecoyPuppetEntityModel());
     }
-
-
 }

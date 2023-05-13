@@ -11,7 +11,7 @@ public class AncientForgeryClient implements ClientModInitializer {
     public static final AFRegistry[] REGISTRIES = new AFRegistry[]{
             new BlockEntityRegistry(),
             new BlockEntityRendererRegistry(),
-            new GeoEntityRendererRegistry(),
+            new EntityRendererRegistry(),
     };
 
     @Override

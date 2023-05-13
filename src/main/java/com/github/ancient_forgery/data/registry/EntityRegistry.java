@@ -1,6 +1,7 @@
 package com.github.ancient_forgery.data.registry;
 
 import com.github.ancient_forgery.data.entity.custom.DecoyPuppetEntity;
+import com.github.ancient_forgery.data.entity.custom.LostSoulEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -22,10 +23,16 @@ public class EntityRegistry implements AFRegistry {
             SpawnGroup.CREATURE, DecoyPuppetEntity::new)
             .dimensions(EntityDimensions.fixed(1.0f, 1.75f))
             .build();
+    public static final EntityType<LostSoulEntity> LOST_SOUL_ENTITY = FabricEntityTypeBuilder.create(
+                    SpawnGroup.CREATURE, LostSoulEntity::new)
+            .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+            .build();
 
     @Override
     public void register() {
         Registry.register(Registries.ENTITY_TYPE, new Identifier(MOD_ID, "decoy_puppet"), DECOY_PUPPET_ENTITY);
         FabricDefaultAttributeRegistry.register(DECOY_PUPPET_ENTITY, DecoyPuppetEntity.setAttributes());
+        Registry.register(Registries.ENTITY_TYPE, new Identifier(MOD_ID, "lost_soul"), LOST_SOUL_ENTITY);
+        FabricDefaultAttributeRegistry.register(LOST_SOUL_ENTITY, LostSoulEntity.setAttributes());
     }
 }
