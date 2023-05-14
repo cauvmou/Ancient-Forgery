@@ -8,6 +8,8 @@ import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
+import static com.github.ancient_forgery.main.AncientForgery.MOD_ID;
+
 public class ScreenRegistry implements AFRegistry {
     public static final ScreenHandlerType<FletchingScreenHandler> FLETCHING_SCREEN_HANDLER = new ScreenHandlerType<>(
             FletchingScreenHandler::new,
@@ -18,7 +20,7 @@ public class ScreenRegistry implements AFRegistry {
         HandledScreens.register(FLETCHING_SCREEN_HANDLER,
                 FletchingScreen::new);
         net.minecraft.registry.Registry.register(Registries.SCREEN_HANDLER,
-                new Identifier("ancient_forgery", "fake_fletching_table"),
+                new Identifier(MOD_ID, "fake_fletching_table"),
                 FLETCHING_SCREEN_HANDLER);
     }
 }

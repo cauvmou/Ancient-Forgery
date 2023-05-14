@@ -7,6 +7,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import static com.github.ancient_forgery.main.AncientForgery.MOD_ID;
+
 public class BlockEntityRegistry implements AFRegistry {
 
     public static final BlockEntityType<SuspiciousSoulSandEntity> SUSPICIOUS_SOUL_SAND_ENTITY = FabricBlockEntityTypeBuilder.create(SuspiciousSoulSandEntity::new, BlockRegistry.SUSPICIOUS_SOUL_SAND).build();
@@ -14,7 +16,7 @@ public class BlockEntityRegistry implements AFRegistry {
     @Override
     public void register() {
         Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier("ancient_forgery", "suspicious_soul_sand"),
+                new Identifier(MOD_ID, "suspicious_soul_sand"),
                 SUSPICIOUS_SOUL_SAND_ENTITY);
     }
 

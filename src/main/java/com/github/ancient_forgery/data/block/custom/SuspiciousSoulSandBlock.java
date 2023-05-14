@@ -23,6 +23,7 @@ public class SuspiciousSoulSandBlock extends BrushableBlock implements BlockEnti
         super(baseBlock, settings, brushingSound, brushingCompleteSound);
     }
 
+    @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return COLLISION_SHAPE;
     }

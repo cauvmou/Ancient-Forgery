@@ -6,7 +6,8 @@
     "BrushItemMixin",
     "FletchingTableBlockMixin",
     "FlintAndSteelItemMixin",
-    "SpreadNetherPortalMixin"
+    "SpreadNetherPortalMixin",
+    "BubbleColumnMixin"
   ],
   "injectors": {
     "defaultRequire": 1
