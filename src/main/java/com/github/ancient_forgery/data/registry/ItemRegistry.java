@@ -1,6 +1,7 @@
 package com.github.ancient_forgery.data.registry;
 
 import com.github.ancient_forgery.data.item.custom.LongBowItem;
+import com.github.ancient_forgery.data.item.custom.SoulBottleItem;
 import com.github.ancient_forgery.data.item.custom.TestBrush;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
@@ -18,6 +19,7 @@ public class ItemRegistry implements AFRegistry {
     public static final Item SUSPICIOUS_SOUL_SAND_ITEM = new BlockItem(
             SUSPICIOUS_SOUL_SAND,
             new Item.Settings());
+    public static final Item SOUL_BOTTLE = new SoulBottleItem(new FabricItemSettings().rarity(Rarity.RARE));
     public static final Item BONE_PILE_ITEM = new BlockItem(
             BONE_PILE,
             new Item.Settings());
@@ -89,6 +91,9 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "suspicious_soul_sand"),
                 SUSPICIOUS_SOUL_SAND_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "soul_bottle"),
+                SOUL_BOTTLE);
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "test_brush"),
                 TEST_BRUSH);
