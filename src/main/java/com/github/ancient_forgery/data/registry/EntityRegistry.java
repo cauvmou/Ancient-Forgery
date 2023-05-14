@@ -24,7 +24,7 @@ public class EntityRegistry implements AFRegistry {
             .dimensions(EntityDimensions.fixed(1.0f, 1.75f))
             .build();
     public static final EntityType<LostSoulEntity> LOST_SOUL_ENTITY = FabricEntityTypeBuilder.create(
-                    SpawnGroup.CREATURE, LostSoulEntity::new)
+            SpawnGroup.CREATURE, LostSoulEntity::new)
             .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
             .build();
 

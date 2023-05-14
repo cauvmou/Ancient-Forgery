@@ -10,6 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
@@ -39,7 +40,7 @@ public class ItemGroupRegistry implements AFRegistry {
         }
 
         Registry.register(Registries.ITEM_GROUP, MOD_GROUP, FabricItemGroup.builder()
-                .displayName(Text.of("Ancient Forgery"))
+                .displayName(Text.translatable("itemGroup.ancient_forgery.mod_group"))
                 .icon(() -> new ItemStack(Items.SOUL_CAMPFIRE))
                 .entries((displayContext, entries) -> {
                     entries.add(CANDELABRA);

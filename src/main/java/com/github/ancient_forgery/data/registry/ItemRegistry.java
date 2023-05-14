@@ -77,10 +77,8 @@ public class ItemRegistry implements AFRegistry {
                     .rarity(Rarity.EPIC));
     public static final Item PARROT_FEATHER = new Item(
             new FabricItemSettings());
-
     public static final Item COPPER_NUGGET = new Item(
             new FabricItemSettings());
-    
     public static final Item CREEPER_SKULL_SHARD = new Item(
             new FabricItemSettings());
     public static final Item SKELETON_SKULL_SHARD = new Item(
