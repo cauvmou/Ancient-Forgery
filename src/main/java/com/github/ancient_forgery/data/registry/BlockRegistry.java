@@ -27,6 +27,10 @@ public class BlockRegistry implements AFRegistry {
                     .strength(2f)
                     .requiresTool()
                     .nonOpaque());
+    public static final Block CREEPER_SKULL = new SkullBlock(SkullBlock.Type.CREEPER,
+            FabricBlockSettings.copyOf(Blocks.CREEPER_HEAD));
+    public static final Block ZOMBIE_SKULL = new SkullBlock(SkullBlock.Type.ZOMBIE,
+            FabricBlockSettings.copyOf(Blocks.ZOMBIE_HEAD));
 
     public static final Block CANDELABRA = createCandelabraBlock(MapColor.PALE_YELLOW);
     public static final Block WHITE_CANDELABRA = createCandelabraBlock(MapColor.WHITE_GRAY);
@@ -119,5 +123,11 @@ public class BlockRegistry implements AFRegistry {
         Registry.register(Registries.BLOCK,
                 new Identifier("ancient_forgery", "pink_candelabra"),
                 PINK_CANDELABRA);
+        Registry.register(Registries.BLOCK,
+                new Identifier("ancient_forgery", "creeper_skull"),
+                CREEPER_SKULL);
+        Registry.register(Registries.BLOCK,
+                new Identifier("ancient_forgery", "zombie_skull"),
+                ZOMBIE_SKULL);
     }
 }
