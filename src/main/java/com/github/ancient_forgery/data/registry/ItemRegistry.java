@@ -79,10 +79,20 @@ public class ItemRegistry implements AFRegistry {
                     .rarity(Rarity.EPIC));
     public static final Item PARROT_FEATHER = new Item(
             new FabricItemSettings());
-
     public static final Item COPPER_NUGGET = new Item(
             new FabricItemSettings());
-
+    public static final Item CREEPER_SKULL_SHARD = new Item(
+            new FabricItemSettings());
+    public static final Item SKELETON_SKULL_SHARD = new Item(
+            new FabricItemSettings());
+    public static final Item ZOMBIE_SKULL_SHARD = new Item(
+            new FabricItemSettings());
+    public static final Item CREEPER_SKULL_ITEM = new BlockItem(
+            CREEPER_SKULL,
+            new Item.Settings());
+    public static final Item ZOMBIE_SKULL_ITEM = new BlockItem(
+            ZOMBIE_SKULL,
+            new Item.Settings());
     public static final Item LONGBOW = new LongBowItem(
             new FabricItemSettings().maxDamage(384));
 
@@ -160,5 +170,20 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "copper_nugget"),
                 COPPER_NUGGET);
+        Registry.register(Registries.ITEM,
+                new Identifier("ancient_forgery", "creeper_skull_shard"),
+                CREEPER_SKULL_SHARD);
+        Registry.register(Registries.ITEM,
+                new Identifier("ancient_forgery", "skeleton_skull_shard"),
+                SKELETON_SKULL_SHARD);
+        Registry.register(Registries.ITEM,
+                new Identifier("ancient_forgery", "zombie_skull_shard"),
+                ZOMBIE_SKULL_SHARD);
+        Registry.register(Registries.ITEM,
+                new Identifier("ancient_forgery", "creeper_skull"),
+                CREEPER_SKULL_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier("ancient_forgery", "zombie_skull"),
+                ZOMBIE_SKULL_ITEM);
     }
 }

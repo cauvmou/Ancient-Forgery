@@ -93,7 +93,7 @@ public class LostSoulEntity extends PassiveEntity {
     }
 
     public static boolean canSpawn(EntityType<BatEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random) {
-        return world.getBiome(pos).matchesId(new Identifier("minecraft", "soul_sand_valley"));
+        return world.getBiome(pos).matchesId(Identifier.of("minecraft", "soul_sand_valley"));
     }
 
     @Override
