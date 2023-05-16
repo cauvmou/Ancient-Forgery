@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 
 public class ModModelPredicateProvider {
     public static void registerModModels(){
-        registerBow(ItemRegistry.LONGBOW);
+        registerBow(ItemRegistry.LONGBOW_ITEM);
     }
 
     private static void registerBow(Item bow){
