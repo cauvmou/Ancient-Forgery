@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:flint"
+      "item": "minecraft:bone"
     },
     {
       "item": "ancient_forgery:carving_knife"
@@ -11,6 +11,6 @@
   ],
   "result": {
     "count": 1,
-    "item": "ancient_forgery:flint_arrow_tip"
+    "item": "ancient_forgery:bone_arrow_tip"
   }
 }

@@ -27,5 +27,9 @@
   "block.ancient_forgery.creeper_skull": "Creeper Skull",
   "block.ancient_forgery.zombie_skull": "Zombie Skull",
   "itemGroup.ancient_forgery.mod_group": "Ancient Forgery",
-  "item.ancient_forgery.carving_knife": "Carving Knife"
+  "item.ancient_forgery.carving_knife": "Carving Knife",
+  "item.ancient_forgery.flint_arrow_tip": "Flint Arrow Tip",
+  "item.ancient_forgery.iron_arrow_tip": "Iron Arrow Tip",
+  "item.ancient_forgery.diamond_arrow_tip": "Diamond Arrow Tip",
+  "item.ancient_forgery.bone_arrow_tip": "Bone Arrow Tip"
 }
