@@ -26,5 +26,6 @@
   "item.ancient_forgery.zombie_skull_shard": "Zombie Skull Shard",
   "block.ancient_forgery.creeper_skull": "Creeper Skull",
   "block.ancient_forgery.zombie_skull": "Zombie Skull",
-  "itemGroup.ancient_forgery.mod_group": "Ancient Forgery"
+  "itemGroup.ancient_forgery.mod_group": "Ancient Forgery",
+  "item.ancient_forgery.carving_knife": "Carving Knife"
 }
