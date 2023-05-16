@@ -99,8 +99,10 @@ public class ItemRegistry implements AFRegistry {
     public static final Item LONGBOW_ITEM = new LongBowItem(
             new FabricItemSettings().maxDamage(384));
     public static final CarvingKnifeItem CARVING_KNIFE_ITEM = new CarvingKnifeItem(
-            ToolMaterials.IRON, new FabricItemSettings()
+            ToolMaterials.IRON, new FabricItemSettings().recipeRemainder(ItemRegistry.CARVING_KNIFE_ITEM)
     );
+    public static final Item FLINT_ARROW_TIP = new Item(
+            new FabricItemSettings());
 
     @Override
     public void register() {
@@ -194,5 +196,8 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "carving_knife"),
                 CARVING_KNIFE_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "flint_arrow_tip"),
+                FLINT_ARROW_TIP);
     }
 }

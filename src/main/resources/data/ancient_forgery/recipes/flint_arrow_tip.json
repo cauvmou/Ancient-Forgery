@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:flint"
+    },
+    {
+      "item": "ancient_forgery:carving_knife"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "ancient_forgery:flint_arrow_tip"
+  },
+  "remainder": {
+    "item": "ancient_forgery:carving_knife"
+  }
+}
