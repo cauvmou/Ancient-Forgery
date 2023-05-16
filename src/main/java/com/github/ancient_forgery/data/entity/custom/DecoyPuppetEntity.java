@@ -63,4 +63,9 @@ public class DecoyPuppetEntity extends MobEntity implements GeoEntity {
     public void takeKnockback(double strength, double x, double z) {
         return;
     }
+
+    @Override
+    public boolean isPushable() {
+        return false;
+    }
 }

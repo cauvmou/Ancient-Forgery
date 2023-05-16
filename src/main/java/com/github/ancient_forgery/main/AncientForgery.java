@@ -26,5 +26,6 @@ public class AncientForgery implements ModInitializer {
         for (AFRegistry r : REGISTRIES) {
             r.register();
         }
+
     }
 }
