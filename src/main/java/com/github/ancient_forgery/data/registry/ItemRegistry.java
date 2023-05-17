@@ -2,6 +2,7 @@ package com.github.ancient_forgery.data.registry;
 
 import com.github.ancient_forgery.data.item.custom.CarvingKnifeItem;
 import com.github.ancient_forgery.data.item.custom.LongBowItem;
+import com.github.ancient_forgery.data.item.custom.ShortBowItem;
 import com.github.ancient_forgery.data.item.custom.SoulBottleItem;
 import com.github.ancient_forgery.data.item.custom.TestBrush;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -97,6 +98,8 @@ public class ItemRegistry implements AFRegistry {
             ZOMBIE_SKULL,
             new Item.Settings());
     public static final Item LONGBOW_ITEM = new LongBowItem(
+            new FabricItemSettings().maxDamage(384));
+    public static final Item SHORTBOW_ITEM = new ShortBowItem(
             new FabricItemSettings().maxDamage(384));
     public static final CarvingKnifeItem CARVING_KNIFE_ITEM = new CarvingKnifeItem(
             ToolMaterials.IRON, new FabricItemSettings()
@@ -208,6 +211,9 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "zombie_skull"),
                 ZOMBIE_SKULL_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "shortbow"),
+                SHORTBOW_ITEM);
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "carving_knife"),
                 CARVING_KNIFE_ITEM);

@@ -11,12 +11,11 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
 
-public class LongBowItem extends BowItem {
-    public static final int TICKS_PER_SECOND = 30;
-    public static final int RANGE = 20;
-
-    public static final double DAMAGE_MULT = 1.2;
-    public LongBowItem(Item.Settings settings){super(settings);}
+public class ShortBowItem extends BowItem {
+    public static final int TICKS_PER_SECOND = 15;
+    public static final int RANGE = 10;
+    public static final double DAMAGE_MULT = 0.85;
+    public ShortBowItem(Item.Settings settings){super(settings);}
 
 
     @Override
