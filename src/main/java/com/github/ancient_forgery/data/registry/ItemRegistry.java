@@ -1,5 +1,6 @@
 package com.github.ancient_forgery.data.registry;
 
+import com.github.ancient_forgery.data.item.custom.CarvingKnifeItem;
 import com.github.ancient_forgery.data.item.custom.LongBowItem;
 import com.github.ancient_forgery.data.item.custom.ShortBowItem;
 import com.github.ancient_forgery.data.item.custom.SoulBottleItem;
@@ -7,6 +8,8 @@ import com.github.ancient_forgery.data.item.custom.TestBrush;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -94,10 +97,21 @@ public class ItemRegistry implements AFRegistry {
     public static final Item ZOMBIE_SKULL_ITEM = new BlockItem(
             ZOMBIE_SKULL,
             new Item.Settings());
-    public static final Item LONGBOW = new LongBowItem(
+    public static final Item LONGBOW_ITEM = new LongBowItem(
             new FabricItemSettings().maxDamage(384));
-    public static final Item SHORTBOW = new ShortBowItem(
+    public static final Item SHORTBOW_ITEM = new ShortBowItem(
             new FabricItemSettings().maxDamage(384));
+    public static final CarvingKnifeItem CARVING_KNIFE_ITEM = new CarvingKnifeItem(
+            ToolMaterials.IRON, new FabricItemSettings()
+    );
+    public static final Item FLINT_ARROW_TIP = new Item(
+            new FabricItemSettings());
+    public static final Item IRON_ARROW_TIP = new Item(
+            new FabricItemSettings());
+    public static final Item DIAMOND_ARROW_TIP = new Item(
+            new FabricItemSettings());
+    public static final Item BONE_ARROW_TIP = new Item(
+            new FabricItemSettings());
 
     @Override
     public void register() {
@@ -169,7 +183,7 @@ public class ItemRegistry implements AFRegistry {
                 PINK_CANDELABRA_ITEM);
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "longbow"),
-                LONGBOW);
+                LONGBOW_ITEM);
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "copper_nugget"),
                 COPPER_NUGGET);
@@ -190,6 +204,21 @@ public class ItemRegistry implements AFRegistry {
                 ZOMBIE_SKULL_ITEM);
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "shortbow"),
-                SHORTBOW);
+                SHORTBOW_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "carving_knife"),
+                CARVING_KNIFE_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "flint_arrow_tip"),
+                FLINT_ARROW_TIP);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "iron_arrow_tip"),
+                IRON_ARROW_TIP);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "diamond_arrow_tip"),
+                DIAMOND_ARROW_TIP);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "bone_arrow_tip"),
+                BONE_ARROW_TIP);
     }
 }

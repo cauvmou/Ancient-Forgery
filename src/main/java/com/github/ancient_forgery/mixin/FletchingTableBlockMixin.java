@@ -2,6 +2,8 @@ package com.github.ancient_forgery.mixin;
 
 import com.github.ancient_forgery.data.screen.FletchingScreenHandler;
 import com.github.ancient_forgery.data.screen.FletchingScreenHandlerFactory;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -20,6 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(FletchingTableBlock.class)
 public abstract class FletchingTableBlockMixin implements FletchingScreenHandlerFactory {
+
     @Inject(at = @At("HEAD"), method = "Lnet/minecraft/block/FletchingTableBlock;onUse(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;Lnet/minecraft/util/hit/BlockHitResult;)Lnet/minecraft/util/ActionResult;", cancellable = true)
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
         if (!world.isClient) {

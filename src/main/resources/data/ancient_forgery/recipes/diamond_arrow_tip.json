@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "ancient_forgery:carving_knife"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "ancient_forgery:diamond_arrow_tip"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bone"
+    },
+    {
+      "item": "ancient_forgery:carving_knife"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "ancient_forgery:bone_arrow_tip"
+  }
+}

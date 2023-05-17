@@ -12,6 +12,7 @@ public class AncientForgeryClient implements ClientModInitializer {
             new BlockEntityRegistry(),
             new BlockEntityRendererRegistry(),
             new EntityRendererRegistry(),
+            new ScreenRegistry(),
     };
 
     @Override

@@ -17,12 +17,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BlockRegistry implements AFRegistry {
-
     public static final Block SUSPICIOUS_SOUL_SAND = new SuspiciousSoulSandBlock(
             Blocks.SOUL_SAND,
             FabricBlockSettings.copyOf(Blocks.SOUL_SAND),
             SoundEvent.of(Identifier.of("minecraft", "item.brush.brushing.sand")),
             SoundEvent.of(Identifier.of("minecraft", "item.brush.brushing.sand.complete")));
+
     public static final Block BONE_PILE = new BonePileBlock(
             FabricBlockSettings.copyOf(Blocks.DEAD_TUBE_CORAL_BLOCK)
                     .strength(2f)
@@ -32,6 +32,9 @@ public class BlockRegistry implements AFRegistry {
             FabricBlockSettings.copyOf(Blocks.CREEPER_HEAD));
     public static final Block ZOMBIE_SKULL = new SkullBlock(SkullBlock.Type.ZOMBIE,
             FabricBlockSettings.copyOf(Blocks.ZOMBIE_HEAD));
+    public static final List<Block> SKULL_LIST = new ArrayList<>(Arrays.asList(
+            CREEPER_SKULL, ZOMBIE_SKULL
+    ));
 
     public static final Block CANDELABRA = createCandelabraBlock(MapColor.PALE_YELLOW);
     public static final Block WHITE_CANDELABRA = createCandelabraBlock(MapColor.WHITE_GRAY);

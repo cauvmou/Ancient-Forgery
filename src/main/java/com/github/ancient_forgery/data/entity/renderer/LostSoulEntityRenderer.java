@@ -37,7 +37,6 @@ public class LostSoulEntityRenderer extends EntityRenderer<LostSoulEntity> {
     
     @Override
     public void render(LostSoulEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
-        /*
         if ((entity).age < 2 && this.dispatcher.camera.getFocusedEntity().squaredDistanceTo(entity) < 12.25) {
             return;
         }
@@ -50,13 +49,13 @@ public class LostSoulEntityRenderer extends EntityRenderer<LostSoulEntity> {
         Matrix4f matrix4f = entry.getPositionMatrix();
         Matrix3f matrix3f = entry.getNormalMatrix();
         VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntityCutoutNoCull(this.getTexture(entity)));
-        this.vertex(matrix4f, matrix3f, vertexConsumer, -.5f, -.5f, 0, 0.0f, 0.0f, 0, 1, 0, light);
-        this.vertex(matrix4f, matrix3f, vertexConsumer, .5f, -.5f, 0, 1.0f, 0.0f, 0, 1, 0, light);
-        this.vertex(matrix4f, matrix3f, vertexConsumer, .5f, .5f, 0, 1.0f, 1.0f, 0, 1, 0, light);
-        this.vertex(matrix4f, matrix3f, vertexConsumer, -.5f, .5f, 0, 0.0f, 1.0f, 0, 1, 0, light);
+        this.vertex(matrix4f, matrix3f, vertexConsumer, -.5f, -.5f, 0, 0.0f, 0.0f, 0, -1, 0, 15);
+        this.vertex(matrix4f, matrix3f, vertexConsumer, .5f, -.5f, 0, 1.0f, 0.0f, 0, -1, 0, 15);
+        this.vertex(matrix4f, matrix3f, vertexConsumer, .5f, .5f, 0, 1.0f, 1.0f, 0, -1, 0, 15);
+        this.vertex(matrix4f, matrix3f, vertexConsumer, -.5f, .5f, 0, 0.0f, 1.0f, 0, -1, 0, 15);
         matrices.pop();
         super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
-        */
+
     }
     
     @Override
