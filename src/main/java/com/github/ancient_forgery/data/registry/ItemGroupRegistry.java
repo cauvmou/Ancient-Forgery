@@ -45,7 +45,7 @@ public class ItemGroupRegistry implements AFRegistry {
                 .entries((displayContext, entries) -> {
                     entries.add(CANDELABRA);
                     entries.add(COPPER_NUGGET);
-                    entries.add(LONGBOW);
+                    entries.add(LONGBOW_ITEM);
                 })
                 .build()
         );
