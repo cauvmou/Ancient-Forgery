@@ -110,6 +110,15 @@ public class ItemRegistry implements AFRegistry {
     public static final Item BONE_ARROW_TIP = new Item(
             new FabricItemSettings());
 
+    public static final Item BONE_PILLAR_ITEM = new BlockItem(
+            BONE_PILLAR, new FabricItemSettings());
+    public static final Item BONE_SLAB_ITEM = new BlockItem(
+            BONE_SLAB, new FabricItemSettings());
+    public static final Item BONE_BRICKS_ITEM = new BlockItem(
+            BONE_BRICKS, new FabricItemSettings());
+    public static final Item BONE_BRICK_SLAB_ITEM = new BlockItem(
+            BONE_BRICK_SLAB, new FabricItemSettings());
+
     @Override
     public void register() {
         Registry.register(Registries.ITEM,
@@ -214,5 +223,17 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "bone_arrow_tip"),
                 BONE_ARROW_TIP);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "bone_pillar"),
+                BONE_PILLAR_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "bone_slab"),
+                BONE_SLAB_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "bone_bricks"),
+                BONE_BRICKS_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "bone_brick_slab"),
+                BONE_BRICK_SLAB_ITEM);
     }
 }

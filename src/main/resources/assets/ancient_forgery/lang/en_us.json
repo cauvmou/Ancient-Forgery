@@ -31,5 +31,9 @@
   "item.ancient_forgery.flint_arrow_tip": "Flint Arrow Tip",
   "item.ancient_forgery.iron_arrow_tip": "Iron Arrow Tip",
   "item.ancient_forgery.diamond_arrow_tip": "Diamond Arrow Tip",
-  "item.ancient_forgery.bone_arrow_tip": "Bone Arrow Tip"
+  "item.ancient_forgery.bone_arrow_tip": "Bone Arrow Tip",
+  "block.ancient_forgery.bone_pillar": "Bone Pillar",
+  "block.ancient_forgery.bone_slab": "Bone Slab",
+  "block.ancient_forgery.bone_bricks": "Bone Bricks",
+  "block.ancient_forgery.bone_brick_slab": "Bone Brick Slab"
 }

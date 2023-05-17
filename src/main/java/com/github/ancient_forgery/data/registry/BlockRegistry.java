@@ -68,6 +68,15 @@ public class BlockRegistry implements AFRegistry {
                         .luminance(CandelabraBlock.STATE_TO_LUMINANCE));
     }
 
+    public static final Block BONE_PILLAR = new PillarBlock(
+            FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
+    public static final Block BONE_SLAB = new SlabBlock(
+            FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
+    public static final Block BONE_BRICKS = new Block(
+            FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
+    public static final Block BONE_BRICK_SLAB = new SlabBlock(
+            FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
+
     @Override
     public void register() {
         Registry.register(Registries.BLOCK,
@@ -128,10 +137,22 @@ public class BlockRegistry implements AFRegistry {
                 new Identifier(MOD_ID, "pink_candelabra"),
                 PINK_CANDELABRA);
         Registry.register(Registries.BLOCK,
-                new Identifier("ancient_forgery", "creeper_skull"),
+                new Identifier(MOD_ID, "creeper_skull"),
                 CREEPER_SKULL);
         Registry.register(Registries.BLOCK,
-                new Identifier("ancient_forgery", "zombie_skull"),
+                new Identifier(MOD_ID, "zombie_skull"),
                 ZOMBIE_SKULL);
+        Registry.register(Registries.BLOCK,
+                new Identifier(MOD_ID, "bone_pillar"),
+                BONE_PILLAR);
+        Registry.register(Registries.BLOCK,
+                new Identifier(MOD_ID, "bone_slab"),
+                BONE_SLAB);
+        Registry.register(Registries.BLOCK,
+                new Identifier(MOD_ID, "bone_bricks"),
+                BONE_BRICKS);
+        Registry.register(Registries.BLOCK,
+                new Identifier(MOD_ID, "bone_brick_slab"),
+                BONE_BRICK_SLAB);
     }
 }

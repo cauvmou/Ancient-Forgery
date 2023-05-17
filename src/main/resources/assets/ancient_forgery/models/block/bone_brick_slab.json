@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "ancient_forgery:block/bone_bricks",
+    "side": "ancient_forgery:block/bone_bricks",
+    "top": "ancient_forgery:block/bone_bricks"
+  }
+}
