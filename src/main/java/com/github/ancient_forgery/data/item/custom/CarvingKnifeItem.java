@@ -22,7 +22,6 @@ public class CarvingKnifeItem extends ToolItem {
 
     @Override
     public ItemStack getRecipeRemainder(ItemStack stack) {
-        AncientForgery.LOGGER.info(String.valueOf(stack));
         ItemStack remainder = ItemRegistry.CARVING_KNIFE_ITEM.getDefaultStack();
         remainder.setDamage(stack.getDamage()+1);
 

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ancient_forgery:block/bone_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/bone_block"
+    },
+    "type=top": {
+      "model": "ancient_forgery:block/bone_slab_top"
+    }
+  }
+}

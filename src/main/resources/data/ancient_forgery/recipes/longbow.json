@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "|": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "S||",
+    "S |",
+    "S||"
+  ],
+  "result": {
+    "item": "ancient_forgery:longbow"
+  },
+  "show_notification": true
+}

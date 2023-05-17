@@ -2,6 +2,7 @@ package com.github.ancient_forgery.data.registry;
 
 import com.github.ancient_forgery.data.item.custom.CarvingKnifeItem;
 import com.github.ancient_forgery.data.item.custom.LongBowItem;
+import com.github.ancient_forgery.data.item.custom.ShortBowItem;
 import com.github.ancient_forgery.data.item.custom.SoulBottleItem;
 import com.github.ancient_forgery.data.item.custom.TestBrush;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -98,6 +99,8 @@ public class ItemRegistry implements AFRegistry {
             new Item.Settings());
     public static final Item LONGBOW_ITEM = new LongBowItem(
             new FabricItemSettings().maxDamage(384));
+    public static final Item SHORTBOW_ITEM = new ShortBowItem(
+            new FabricItemSettings().maxDamage(384));
     public static final CarvingKnifeItem CARVING_KNIFE_ITEM = new CarvingKnifeItem(
             ToolMaterials.IRON, new FabricItemSettings()
     );
@@ -109,6 +112,15 @@ public class ItemRegistry implements AFRegistry {
             new FabricItemSettings());
     public static final Item BONE_ARROW_TIP = new Item(
             new FabricItemSettings());
+
+    public static final Item BONE_PILLAR_ITEM = new BlockItem(
+            BONE_PILLAR, new FabricItemSettings());
+    public static final Item BONE_SLAB_ITEM = new BlockItem(
+            BONE_SLAB, new FabricItemSettings());
+    public static final Item BONE_BRICKS_ITEM = new BlockItem(
+            BONE_BRICKS, new FabricItemSettings());
+    public static final Item BONE_BRICK_SLAB_ITEM = new BlockItem(
+            BONE_BRICK_SLAB, new FabricItemSettings());
 
     @Override
     public void register() {
@@ -200,6 +212,9 @@ public class ItemRegistry implements AFRegistry {
                 new Identifier(MOD_ID, "zombie_skull"),
                 ZOMBIE_SKULL_ITEM);
         Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "shortbow"),
+                SHORTBOW_ITEM);
+        Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "carving_knife"),
                 CARVING_KNIFE_ITEM);
         Registry.register(Registries.ITEM,
@@ -214,5 +229,17 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "bone_arrow_tip"),
                 BONE_ARROW_TIP);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "bone_pillar"),
+                BONE_PILLAR_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "bone_slab"),
+                BONE_SLAB_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "bone_bricks"),
+                BONE_BRICKS_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "bone_brick_slab"),
+                BONE_BRICK_SLAB_ITEM);
     }
 }

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "ancient_forgery:bone_bricks"
+  },
+  "result": "ancient_forgery:bone_brick_slab"
+}
