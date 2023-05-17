@@ -1,6 +1,7 @@
 package com.github.ancient_forgery.data.registry;
 
 import com.github.ancient_forgery.data.item.custom.LongBowItem;
+import com.github.ancient_forgery.data.item.custom.ShortBowItem;
 import com.github.ancient_forgery.data.item.custom.SoulBottleItem;
 import com.github.ancient_forgery.data.item.custom.TestBrush;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -95,6 +96,8 @@ public class ItemRegistry implements AFRegistry {
             new Item.Settings());
     public static final Item LONGBOW = new LongBowItem(
             new FabricItemSettings().maxDamage(384));
+    public static final Item SHORTBOW = new ShortBowItem(
+            new FabricItemSettings().maxDamage(384));
 
     @Override
     public void register() {
@@ -171,19 +174,22 @@ public class ItemRegistry implements AFRegistry {
                 new Identifier(MOD_ID, "copper_nugget"),
                 COPPER_NUGGET);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "creeper_skull_shard"),
+                new Identifier(MOD_ID, "creeper_skull_shard"),
                 CREEPER_SKULL_SHARD);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "skeleton_skull_shard"),
+                new Identifier(MOD_ID, "skeleton_skull_shard"),
                 SKELETON_SKULL_SHARD);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "zombie_skull_shard"),
+                new Identifier(MOD_ID, "zombie_skull_shard"),
                 ZOMBIE_SKULL_SHARD);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "creeper_skull"),
+                new Identifier(MOD_ID, "creeper_skull"),
                 CREEPER_SKULL_ITEM);
         Registry.register(Registries.ITEM,
-                new Identifier("ancient_forgery", "zombie_skull"),
+                new Identifier(MOD_ID, "zombie_skull"),
                 ZOMBIE_SKULL_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "shortbow"),
+                SHORTBOW);
     }
 }
