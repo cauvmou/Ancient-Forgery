@@ -65,14 +65,13 @@ public class LostSoulEntity extends PassiveEntity {
     @Override
     public void baseTick() {
         super.baseTick();
-        /*if (this.getWorld().isClient) {
+        if (this.getWorld().isClient) {
             this.getWorld().addParticle(
-                    //new DustParticleEffect(new Vector3f(0.37f, 0.96f, 0.98f), 2.0f),
-                    new DustParticleEffect(new Vector3f(1.0f, 1.0f, 0.0f), 2.0f),
+                    ParticleTypes.SOUL_FIRE_FLAME, false,
                     this.getPos().x, this.getPos().y + this.getDimensions(this.getPose()).height / 2, this.getPos().z,
-                    0.0, 1.0, 0.0
+                    0.0, 0.0, 0.0
             );
-        }*/
+        }
     }
 
     @Override

@@ -9,6 +9,7 @@ public class AncientForgeryClient implements ClientModInitializer {
 
     public static final Logger LOGGER = LoggerFactory.getLogger("ancient_forgery");
     public static final AFRegistry[] REGISTRIES = new AFRegistry[]{
+            new EntityModelLayerRegistry(),
             new BlockEntityRegistry(),
             new BlockEntityRendererRegistry(),
             new EntityRendererRegistry(),
