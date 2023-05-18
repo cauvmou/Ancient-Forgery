@@ -18,7 +18,7 @@ public class ScreenRegistry implements AFRegistry {
     @Override
     public void register() {
         net.minecraft.registry.Registry.register(Registries.SCREEN_HANDLER,
-                new Identifier(MOD_ID, "fake_fletching_table"),
+                new Identifier(MOD_ID, "fletching_table"),
                 FLETCHING_SCREEN_HANDLER);
     }
 

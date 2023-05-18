@@ -1,0 +1,14 @@
+{
+  "type": "ancient_forgery:fletching_recipe",
+  "inputTip" : {
+    "item": "ancient_forgery:flint_arrow_tip"
+  },
+  "inputShaft": {
+    "item": "minecraft:stick"
+  },
+  "inputFletching": {
+    "item": "minecraft:feather"
+  },
+  "outputItem": "minecraft:arrow",
+  "outputAmount": "6"
+}
