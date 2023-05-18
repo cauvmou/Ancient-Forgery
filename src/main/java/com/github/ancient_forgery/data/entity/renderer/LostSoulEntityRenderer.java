@@ -1,6 +1,7 @@
 package com.github.ancient_forgery.data.entity.renderer;
 
 
+import com.github.ancient_forgery.data.entity.custom.DecoyPuppetEntity;
 import com.github.ancient_forgery.data.entity.custom.LostSoulEntity;
 import com.github.ancient_forgery.data.entity.model.DecoyPuppetEntityModel;
 import com.github.ancient_forgery.data.entity.model.LostSoulEntityModel;
@@ -33,26 +34,17 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
+import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
 import static com.github.ancient_forgery.main.AncientForgery.MOD_ID;
 
 @Environment(EnvType.CLIENT)
-public class LostSoulEntityRenderer extends MobEntityRenderer<LostSoulEntity, LostSoulEntityModel> {
+public class LostSoulEntityRenderer extends GeoEntityRenderer<LostSoulEntity> {
 
-    private final float scale = 1.0f;
-
-    public LostSoulEntityRenderer(EntityRendererFactory.Context ctx) {
-        super(ctx, new LostSoulEntityModel(ctx.getPart(EntityModelLayerRegistry.LOST_SOUL)), 0.0f);
-    }
-    
-    @Override
-    public Identifier getTexture(LostSoulEntity entity) {
-        return new Identifier(MOD_ID, "textures/entity/lost_soul/lost_soul.png");
-    }
-
-    @Override
-    protected int getBlockLight(LostSoulEntity entity, BlockPos blockPos) {
-        return 15;
+    public LostSoulEntityRenderer(EntityRendererFactory.Context renderManager) {
+        super(renderManager, new LostSoulEntityModel());
+        this.renderLayers.addLayer(new AutoGlowingGeoLayer<>(this));
     }
 }

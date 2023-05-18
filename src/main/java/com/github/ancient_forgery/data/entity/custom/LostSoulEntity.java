@@ -33,88 +33,52 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-import java.util.Comparator;
-import java.util.EnumSet;
-import java.util.List;
+public class LostSoulEntity extends PathAwareEntity implements GeoEntity {
 
-public class LostSoulEntity extends PassiveEntity {
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
-    Vec3d targetPosition = Vec3d.ZERO;
-    BlockPos circlingCenter = BlockPos.ORIGIN;
-    LostSoulEntity.LostSoulMovementType movementType = LostSoulEntity.LostSoulMovementType.WANDER;
-
-    static enum LostSoulMovementType {
-        CIRCLE,
-        WANDER,
-    }
-
-    public LostSoulEntity(EntityType<? extends PassiveEntity> entityType, World world) {
+    public LostSoulEntity(EntityType<? extends LostSoulEntity> entityType, World world) {
         super(entityType, world);
-        this.setNoGravity(true);
-        this.moveControl = new LostSoulMoveControl(this, 5);
+        this.moveControl = new FlightMoveControl(this, 20, true);
     }
 
     public static DefaultAttributeContainer setAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 1.0d)
-                .add(EntityAttributes.GENERIC_FLYING_SPEED, 4.0d)
+                .add(EntityAttributes.GENERIC_FLYING_SPEED, 1.0d)
                 .build();
     }
 
     @Override
-    public void baseTick() {
-        super.baseTick();
-        if (this.getWorld().isClient) {
-            this.getWorld().addParticle(
-                    ParticleTypes.SOUL_FIRE_FLAME, false,
-                    this.getPos().x, this.getPos().y + this.getDimensions(this.getPose()).height / 2, this.getPos().z,
-                    0.0, 0.0, 0.0
-            );
-        }
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController<>(this, "idle", 5, this::predicate));
     }
 
     @Override
-    protected void initGoals() {
-        this.goalSelector.add(1, new LostSoulFlyGoal(this, 1.0f));
-    }
-
-    @Nullable
-    @Override
-    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return null;
-    }
-
-    @Override
-    public boolean isPushable() {
-        return false;
-    }
-
-    @Override
-    public boolean isFireImmune() {
-        return true;
-    }
-
-    @Override
-    public boolean isOnFire() {
-        return false;
-    }
-
-    @Override
-    protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
-        return dimensions.height / 2.0f;
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
     }
 
     public static boolean canSpawn(EntityType<LostSoulEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random) {
         return world.getBiome(pos).matchesId(Identifier.of("minecraft", "soul_sand_valley"));
     }
 
-    @Override
-    protected void playStepSound(BlockPos pos, BlockState state) {
-    }
+    private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
+        if (tAnimationState.isMoving()) {
+            tAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.lost_soul.fly", Animation.LoopType.LOOP));
+            return PlayState.CONTINUE;
+        }
 
-    @Override
-    protected void fall(double heightDifference, boolean onGround, BlockState state, BlockPos landedPosition) {
+        tAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.lost_soul.idle", Animation.LoopType.LOOP));
+        return PlayState.CONTINUE;
     }
 
     @Override
@@ -126,61 +90,15 @@ public class LostSoulEntity extends PassiveEntity {
         return birdNavigation;
     }
 
-    private static class LostSoulMoveControl
-            extends MoveControl {
-        private final int maxPitchChange;
-
-        public LostSoulMoveControl(MobEntity entity, int maxPitchChange) {
-            super(entity);
-            this.maxPitchChange = maxPitchChange;
-        }
-
-        @Override
-        public void tick() {
-            if (this.state == MoveControl.State.MOVE_TO) {
-                this.state = MoveControl.State.WAIT;
-                this.entity.setNoGravity(true);
-                double d = this.targetX - this.entity.getX();
-                double e = this.targetY - this.entity.getY();
-                double f = this.targetZ - this.entity.getZ();
-                double g = d * d + e * e + f * f;
-                if (g < 2.500000277905201E-7) {
-                    this.entity.setUpwardSpeed(0.0f);
-                    this.entity.setForwardSpeed(0.0f);
-                    return;
-                }
-                float h = (float)(MathHelper.atan2(f, d) * 57.2957763671875) - 90.0f;
-                this.entity.setYaw(this.wrapDegrees(this.entity.getYaw(), h, 90.0f));
-                float i = this.entity.isOnGround() ? (float)(this.speed * this.entity.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED)) : (float)(this.speed * this.entity.getAttributeValue(EntityAttributes.GENERIC_FLYING_SPEED));
-                this.entity.setMovementSpeed(i);
-                double j = Math.sqrt(d * d + f * f);
-                if (Math.abs(e) > (double)1.0E-5f || Math.abs(j) > (double)1.0E-5f) {
-                    float k = (float)(-(MathHelper.atan2(e, j) * 57.2957763671875));
-                    this.entity.setPitch(this.wrapDegrees(this.entity.getPitch(), k, this.maxPitchChange));
-                    this.entity.setUpwardSpeed(e > 0.0 ? i : -i);
-                }
-            } else {
-                this.entity.setUpwardSpeed(0.0f);
-                this.entity.setForwardSpeed(0.0f);
-            }
-        }
+    @Override
+    protected void initGoals() {
+        this.goalSelector.add(10, new FlyGoal(this, 0.6d));
+        this.goalSelector.add(8, new LookAroundGoal(this));
+        this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 3.0f, 1.0f));
     }
 
-    public static class LostSoulFlyGoal
-            extends WanderAroundFarGoal {
-        public LostSoulFlyGoal(PathAwareEntity pathAwareEntity, double d) {
-            super(pathAwareEntity, d);
-        }
-
-        @Override
-        @Nullable
-        protected Vec3d getWanderTarget() {
-            Vec3d vec3d = this.mob.getRotationVec(0.0f);
-            Vec3d vec3d2 = AboveGroundTargeting.find(this.mob, 8, 3, vec3d.x, vec3d.z, 1.5707964f, 8, 5);
-            if (vec3d2 != null) {
-                return vec3d2;
-            }
-            return NoPenaltySolidTargeting.find(this.mob, 8, 2, -2, vec3d.x, vec3d.z, 1.5707963705062866);
-        }
+    @Override
+    protected void fall(double heightDifference, boolean onGround, BlockState state, BlockPos landedPosition) {
     }
+
 }

@@ -30,7 +30,7 @@ public class EntityRegistry implements AFRegistry {
             .build();
     public static final EntityType<LostSoulEntity> LOST_SOUL_ENTITY = FabricEntityTypeBuilder.create(
             SpawnGroup.AMBIENT, LostSoulEntity::new)
-            .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+            .dimensions(EntityDimensions.fixed(0.5f, 1.0f))
             .build();
 
     @Override

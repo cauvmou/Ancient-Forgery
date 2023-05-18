@@ -35,5 +35,6 @@
   "block.ancient_forgery.bone_pillar": "Bone Pillar",
   "block.ancient_forgery.bone_slab": "Bone Slab",
   "block.ancient_forgery.bone_bricks": "Bone Bricks",
-  "block.ancient_forgery.bone_brick_slab": "Bone Brick Slab"
+  "block.ancient_forgery.bone_brick_slab": "Bone Brick Slab",
+  "item.ancient_forgery.soul_bottle": "Captured Soul"
 }

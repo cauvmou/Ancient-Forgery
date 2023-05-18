@@ -1,0 +1,84 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.lost_soul",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "head",
+					"parent": "root",
+					"pivot": [0, 5, 0],
+					"cubes": [
+						{"origin": [-2.5, 6, -2.5], "size": [5, 7, 5], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "halo",
+					"parent": "head",
+					"pivot": [0, 11, 0]
+				},
+				{
+					"name": "body",
+					"parent": "root",
+					"pivot": [0, 5, 0],
+					"cubes": [
+						{"origin": [-1.5, 0, -1], "size": [3, 6, 2], "uv": [18, 18]}
+					]
+				},
+				{
+					"name": "wings",
+					"parent": "body",
+					"pivot": [0, 5, 1]
+				},
+				{
+					"name": "w_left",
+					"parent": "wings",
+					"pivot": [-0.5, 5, 1],
+					"cubes": [
+						{"origin": [-5.5, 5, 1], "size": [5, 8, 0], "uv": [10, 12]}
+					]
+				},
+				{
+					"name": "w_right",
+					"parent": "wings",
+					"pivot": [0.5, 5, 1],
+					"cubes": [
+						{"origin": [0.5, 5, 1], "size": [5, 8, 0], "uv": [0, 12]}
+					]
+				},
+				{
+					"name": "arms",
+					"parent": "body",
+					"pivot": [0, 5.5, 0]
+				},
+				{
+					"name": "left",
+					"parent": "arms",
+					"pivot": [2, 5.5, 0],
+					"cubes": [
+						{"origin": [1.5, 5, -1], "size": [4, 2, 2], "uv": [0, 24]}
+					]
+				},
+				{
+					"name": "right",
+					"parent": "arms",
+					"pivot": [-2, 5.5, 0],
+					"cubes": [
+						{"origin": [-5.5, 5, -1], "size": [4, 2, 2], "uv": [0, 20]}
+					]
+				}
+			]
+		}
+	]
+}

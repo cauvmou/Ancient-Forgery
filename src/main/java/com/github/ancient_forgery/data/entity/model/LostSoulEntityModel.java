@@ -10,30 +10,43 @@ import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.MathHelper;
+import software.bernie.geckolib.constant.DataTickets;
+import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
+import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib.model.data.EntityModelData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.github.ancient_forgery.main.AncientForgery.MOD_ID;
 
-public class LostSoulEntityModel extends EntityModel<LostSoulEntity> {
-    private final ModelPart root;
-    public LostSoulEntityModel(ModelPart root) {
-        super(RenderLayer::getEntityTranslucent);
-        this.root = root.getChild("root");
-    }
-    public static TexturedModelData getTexturedModelData() {
-        ModelData modelData = new ModelData();
-        ModelPartData modelPartData = modelData.getRoot();
-        ModelPartData root = modelPartData.addChild("root", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
-        return TexturedModelData.of(modelData, 32, 32);
-    }
+public class LostSoulEntityModel extends GeoModel<LostSoulEntity> {
+
     @Override
-    public void setAngles(LostSoulEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public Identifier getModelResource(LostSoulEntity animatable) {
+        return new Identifier(MOD_ID, "geo/lost_soul.geo.json");
     }
+
     @Override
-    public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-        root.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+    public Identifier getTextureResource(LostSoulEntity animatable) {
+        return new Identifier(MOD_ID, "textures/entity/lost_soul/lost_soul.png");
+    }
+
+    @Override
+    public Identifier getAnimationResource(LostSoulEntity animatable) {
+        return new Identifier(MOD_ID, "animations/lost_soul.animation.json");
+    }
+
+    @Override
+    public void setCustomAnimations(LostSoulEntity animatable, long instanceId, AnimationState<LostSoulEntity> animationState) {
+        CoreGeoBone head = getAnimationProcessor().getBone("head");
+
+        if (head != null) {
+            EntityModelData entityData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
+            head.setRotX(entityData.headPitch() * MathHelper.RADIANS_PER_DEGREE);
+            head.setRotY(entityData.netHeadYaw() * MathHelper.RADIANS_PER_DEGREE);
+        }
     }
 }
