@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "minecraft:block/polished_blackstone",
+    "side": "ancient_forgery:block/cursed_bookshelf"
+  }
+}

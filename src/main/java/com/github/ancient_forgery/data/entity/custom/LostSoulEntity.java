@@ -67,6 +67,11 @@ public class LostSoulEntity extends PathAwareEntity implements GeoEntity {
         return this.cache;
     }
 
+    @Override
+    public void baseTick() {
+        super.baseTick();
+    }
+
     public static boolean canSpawn(EntityType<LostSoulEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random) {
         return world.getBiome(pos).matchesId(Identifier.of("minecraft", "soul_sand_valley"));
     }

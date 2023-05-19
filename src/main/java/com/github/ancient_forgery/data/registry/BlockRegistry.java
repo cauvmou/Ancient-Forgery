@@ -2,9 +2,11 @@ package com.github.ancient_forgery.data.registry;
 
 import com.github.ancient_forgery.data.block.custom.BonePileBlock;
 import com.github.ancient_forgery.data.block.custom.CandelabraBlock;
+import com.github.ancient_forgery.data.block.custom.CursedBookshelfBlock;
 import com.github.ancient_forgery.data.block.custom.SuspiciousSoulSandBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -17,6 +19,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BlockRegistry implements AFRegistry {
+
+    public static final Block CURSED_BOOKSHELF = new CursedBookshelfBlock(
+            AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE)
+    );
+
     public static final Block SUSPICIOUS_SOUL_SAND = new SuspiciousSoulSandBlock(
             Blocks.SOUL_SAND,
             FabricBlockSettings.copyOf(Blocks.SOUL_SAND),
@@ -82,6 +89,9 @@ public class BlockRegistry implements AFRegistry {
         Registry.register(Registries.BLOCK,
                 new Identifier(MOD_ID, "suspicious_soul_sand"),
                 SUSPICIOUS_SOUL_SAND);
+        Registry.register(Registries.BLOCK,
+                new Identifier(MOD_ID, "cursed_bookshelf"),
+                CURSED_BOOKSHELF);
         Registry.register(Registries.BLOCK,
                 new Identifier(MOD_ID, "bone_pile_1"),
                 BONE_PILE);

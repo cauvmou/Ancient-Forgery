@@ -23,6 +23,12 @@ public class ItemRegistry implements AFRegistry {
     public static final Item SUSPICIOUS_SOUL_SAND_ITEM = new BlockItem(
             SUSPICIOUS_SOUL_SAND,
             new Item.Settings());
+
+    public static final Item CURSED_BOOKSHELF_ITEM = new BlockItem(
+            CURSED_BOOKSHELF,
+            new Item.Settings()
+    );
+
     public static final Item SOUL_BOTTLE = new SoulBottleItem(new FabricItemSettings().rarity(Rarity.RARE));
     public static final Item BONE_PILE_ITEM = new BlockItem(
             BONE_PILE,
@@ -127,6 +133,9 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "suspicious_soul_sand"),
                 SUSPICIOUS_SOUL_SAND_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "cursed_bookshelf"),
+                CURSED_BOOKSHELF_ITEM);
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "soul_bottle"),
                 SOUL_BOTTLE);
