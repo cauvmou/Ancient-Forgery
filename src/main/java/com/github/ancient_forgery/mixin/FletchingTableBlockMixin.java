@@ -5,6 +5,7 @@ import com.github.ancient_forgery.data.screen.FletchingScreenHandlerFactory;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
+import net.minecraft.client.gui.screen.ingame.SmithingScreen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.NamedScreenHandlerFactory;

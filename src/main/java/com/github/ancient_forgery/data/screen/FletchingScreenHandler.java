@@ -1,12 +1,13 @@
 package com.github.ancient_forgery.data.screen;
 
+import com.github.ancient_forgery.data.recipe.FletchingRecipe;
 import com.github.ancient_forgery.data.registry.ScreenRegistry;
+import com.github.ancient_forgery.data.screen.slot.ModResultSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.SmithingRecipe;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
@@ -20,39 +21,34 @@ public class FletchingScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     @Nullable
     private SmithingRecipe currentRecipe;
-    private final List<SmithingRecipe> recipes;
+    private final List<FletchingRecipe> recipes;
 
     public FletchingScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(9));
+        this(syncId, playerInventory, new SimpleInventory(4));
     }
 
     public FletchingScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
         super(ScreenRegistry.FLETCHING_SCREEN_HANDLER, syncId);
 
-        checkSize(inventory, 9);
+        checkSize(inventory, 4);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);
         this.world = playerInventory.player.getWorld();
-        this.recipes = this.world.getRecipeManager().listAllOfType(RecipeType.SMITHING);
+        this.recipes = this.world.getRecipeManager().listAllOfType(FletchingRecipe.Type.INSTANCE);
 
-        //This will place the slot in the correct locations for a 3x3 Grid. The slots exist on both server and client!
-        //This will not render the background of the slots however, this is the Screens job
-        int m;
-        int l;
         //Our inventory
-        for (m = 0; m < 3; ++m) {
-            for (l = 0; l < 3; ++l) {
-                this.addSlot(new Slot(inventory, l + m * 3, 62 + l * 18, 17 + m * 18));
-            }
-        }
+        this.addSlot(new ModResultSlot(inventory, 3, 65, 35));
+        this.addSlot(new Slot(inventory, 0, 10, 15));
+        this.addSlot(new Slot(inventory, 1, 10, 35));
+        this.addSlot(new Slot(inventory, 2, 10, 55));
         //The player inventory
-        for (m = 0; m < 3; ++m) {
-            for (l = 0; l < 9; ++l) {
+        for (int m = 0; m < 3; m++) {
+            for (int l = 0; l < 9; l++) {
                 this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 84 + m * 18));
             }
         }
         //The player Hotbar
-        for (m = 0; m < 9; ++m) {
+        for (int m = 0; m < 9; m++) {
             this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
         }
     }
