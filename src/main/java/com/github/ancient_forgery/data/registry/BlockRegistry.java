@@ -1,9 +1,6 @@
 package com.github.ancient_forgery.data.registry;
 
-import com.github.ancient_forgery.data.block.custom.BonePileBlock;
-import com.github.ancient_forgery.data.block.custom.CandelabraBlock;
-import com.github.ancient_forgery.data.block.custom.CursedBookshelfBlock;
-import com.github.ancient_forgery.data.block.custom.SuspiciousSoulSandBlock;
+import com.github.ancient_forgery.data.block.custom.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.registry.DynamicRegistryManager;
@@ -83,6 +80,9 @@ public class BlockRegistry implements AFRegistry {
             FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
     public static final Block BONE_BRICK_SLAB = new SlabBlock(
             FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
+
+    public static final Block CURSED_LECTERN = new CursedLectern(
+            FabricBlockSettings.copyOf(Blocks.POLISHED_BLACKSTONE));
 
     @Override
     public void register() {
@@ -164,5 +164,8 @@ public class BlockRegistry implements AFRegistry {
         Registry.register(Registries.BLOCK,
                 new Identifier(MOD_ID, "bone_brick_slab"),
                 BONE_BRICK_SLAB);
+        Registry.register(Registries.BLOCK,
+                new Identifier(MOD_ID, "cursed_lectern"),
+                CURSED_LECTERN);
     }
 }

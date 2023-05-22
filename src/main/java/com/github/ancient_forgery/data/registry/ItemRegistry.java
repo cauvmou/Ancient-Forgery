@@ -1,14 +1,9 @@
 package com.github.ancient_forgery.data.registry;
 
-import com.github.ancient_forgery.data.item.custom.CarvingKnifeItem;
-import com.github.ancient_forgery.data.item.custom.LongBowItem;
-import com.github.ancient_forgery.data.item.custom.ShortBowItem;
-import com.github.ancient_forgery.data.item.custom.SoulBottleItem;
-import com.github.ancient_forgery.data.item.custom.TestBrush;
+import com.github.ancient_forgery.data.item.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -127,6 +122,8 @@ public class ItemRegistry implements AFRegistry {
             BONE_BRICKS, new FabricItemSettings());
     public static final Item BONE_BRICK_SLAB_ITEM = new BlockItem(
             BONE_BRICK_SLAB, new FabricItemSettings());
+
+    public static final Item CURSED_LECTERN_ITEM = new BlockItem(CURSED_LECTERN, new FabricItemSettings());
 
     @Override
     public void register() {
@@ -250,5 +247,6 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "bone_brick_slab"),
                 BONE_BRICK_SLAB_ITEM);
+        Registry.register(Registries.ITEM, new Identifier(MOD_ID, "cursed_lectern"), CURSED_LECTERN_ITEM);
     }
 }

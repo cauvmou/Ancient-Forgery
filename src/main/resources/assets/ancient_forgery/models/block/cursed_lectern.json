@@ -2,12 +2,12 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"bottom": "minecraft:polished_bricks",
-		"base": "ancient_forgery:cursed_lectern_base",
-		"front": "ancient_forgery:cursed_lectern_front",
-		"particle": "ancient_forgery:cursed_lectern_sides",
-		"sides": "ancient_forgery:cursed_lectern_sides",
-		"top": "ancient_forgery:cursed_lectern_top"
+		"bottom": "minecraft:block/polished_blackstone_bricks",
+		"base": "ancient_forgery:block/cursed_lectern_base",
+		"front": "ancient_forgery:block/cursed_lectern_front",
+		"particle": "ancient_forgery:block/cursed_lectern_sides",
+		"sides": "ancient_forgery:block/cursed_lectern_sides",
+		"top": "ancient_forgery:block/cursed_lectern_top"
 	},
 	"elements": [
 		{
@@ -48,8 +48,9 @@
 	],
 	"display": {
 		"firstperson_righthand": {
-			"rotation": [0, 135, 0],
-			"scale": [0.4, 0.4, 0.4]
+			"rotation": [ 0, 135, 0 ],
+			"translation": [ 0, 0, 0 ],
+			"scale": [ 0.4, 0.4, 0.4 ]
 		}
 	}
 }
