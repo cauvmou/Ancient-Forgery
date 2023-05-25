@@ -2,6 +2,7 @@ package com.github.ancient_forgery.data.registry;
 
 import com.github.ancient_forgery.data.recipe.FletchingRecipe;
 import com.github.ancient_forgery.data.recipe.FletchingRecipeSerializer;
+import com.github.ancient_forgery.data.recipe.FletchingRecipeType;
 import net.minecraft.block.CandleBlock;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -13,9 +14,14 @@ import static com.github.ancient_forgery.main.AncientForgery.MOD_ID;
 public class RecipeRegistry implements AFRegistry {
     @Override
     public void register() {
+        /*
         Registry.register(Registries.RECIPE_SERIALIZER, FletchingRecipeSerializer.ID,
                 FletchingRecipeSerializer.INSTANCE);
-        Registry.register(Registries.RECIPE_TYPE, new Identifier(MOD_ID, FletchingRecipe.Type.ID),
-                FletchingRecipe.Type.INSTANCE);
+
+         */
+        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(MOD_ID, FletchingRecipeSerializer.ID),
+                FletchingRecipeSerializer.INSTANCE);
+        Registry.register(Registries.RECIPE_TYPE, new Identifier(MOD_ID, FletchingRecipeType.ID),
+                FletchingRecipeType.INSTANCE);
     }
 }

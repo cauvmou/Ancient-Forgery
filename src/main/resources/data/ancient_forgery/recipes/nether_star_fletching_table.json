@@ -2,7 +2,7 @@
   "type": "ancient_forgery:fletching_recipe",
   "ingredients": [
     {
-      "item": "ancient_forgery:flint_arrow_tip"
+      "item": "ancient_forgery:diamond_arrow_tip"
     },
     {
       "item": "minecraft:stick"
@@ -12,7 +12,7 @@
     }
   ],
   "output": {
-    "item": "minecraft:arrow",
+    "item": "minecraft:nether_star",
     "count": 4
   }
 }
