@@ -2,7 +2,6 @@ package com.github.ancient_forgery.data.screen;
 
 import com.github.ancient_forgery.data.recipe.FletchingRecipe;
 import com.github.ancient_forgery.data.recipe.FletchingRecipeType;
-import com.github.ancient_forgery.data.registry.RecipeRegistry;
 import com.github.ancient_forgery.data.registry.ScreenRegistry;
 import com.github.ancient_forgery.data.screen.slot.ModResultSlot;
 import net.minecraft.block.SmithingTableBlock;
@@ -20,6 +19,8 @@ import net.minecraft.recipe.SmithingRecipe;
 import net.minecraft.screen.*;
 import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.screen.slot.ForgingSlotsManager;
+import net.minecraft.recipe.SmithingRecipe;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;

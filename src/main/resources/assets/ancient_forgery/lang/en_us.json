@@ -36,5 +36,9 @@
   "block.ancient_forgery.bone_slab": "Bone Slab",
   "block.ancient_forgery.bone_bricks": "Bone Bricks",
   "block.ancient_forgery.bone_brick_slab": "Bone Brick Slab",
-  "item.ancient_forgery.soul_bottle": "Captured Soul"
+  "block.ancient_forgery.cursed_bookshelf": "Cursed Bookshelf",
+  "item.ancient_forgery.cursed_bookshelf": "Cursed Bookshelf",
+  "item.ancient_forgery.soul_bottle": "Captured Soul",
+  "block.ancient_forgery.cursed_lectern": "Cursed Lectern",
+  "item.ancient_forgery.cursed_lectern": "Cursed Lectern"
 }

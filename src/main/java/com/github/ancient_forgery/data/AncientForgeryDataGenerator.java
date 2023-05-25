@@ -1,11 +1,16 @@
 package com.github.ancient_forgery.data;
 
 import com.github.ancient_forgery.data.registry.BlockRegistry;
+import com.github.ancient_forgery.data.registry.ItemRegistry;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
@@ -27,6 +32,7 @@ public class AncientForgeryDataGenerator implements DataGeneratorEntrypoint {
 		protected void configure(RegistryWrapper.WrapperLookup arg) {
 			getOrCreateTagBuilder(SOUL_FIRE_BASE_BLOCKS)
 					.add(BlockRegistry.SUSPICIOUS_SOUL_SAND);
+
 			getOrCreateTagBuilder(CANDLES)
 					.add(BlockRegistry.CANDELABRA)
 					.add(BlockRegistry.WHITE_CANDELABRA)
@@ -50,8 +56,22 @@ public class AncientForgeryDataGenerator implements DataGeneratorEntrypoint {
 		}
 	}
 
+	private static class CurseTagGenerator extends FabricTagProvider<Enchantment> {
+		public CurseTagGenerator(FabricDataOutput output, RegistryKey<? extends Registry<Enchantment>> registryKey, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+			super(output, registryKey, registriesFuture);
+		}
+
+		@Override
+		protected void configure(RegistryWrapper.WrapperLookup arg) {
+			getOrCreateTagBuilder(TagKey.of(RegistryKeys.ENCHANTMENT, new Identifier("ancient_forgery", "curse")))
+					.add(Enchantments.BINDING_CURSE)
+					.add(Enchantments.VANISHING_CURSE);
+		}
+	}
+
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		fabricDataGenerator.createPack().addProvider((output, registriesFuture) -> new BlockTagGenerator(output, Registries.BLOCK.getKey(), registriesFuture));
+		fabricDataGenerator.createPack().addProvider((output, registriesFuture) -> new CurseTagGenerator(output, Registries.ENCHANTMENT.getKey(), registriesFuture));
 	}
 }

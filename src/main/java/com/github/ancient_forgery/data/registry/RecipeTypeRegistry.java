@@ -6,12 +6,11 @@ import com.github.ancient_forgery.data.recipe.FletchingRecipeType;
 import net.minecraft.block.CandleBlock;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.screen.CraftingScreenHandler;
 import net.minecraft.util.Identifier;
 
 import static com.github.ancient_forgery.main.AncientForgery.MOD_ID;
 
-public class RecipeRegistry implements AFRegistry {
+public class RecipeTypeRegistry implements AFRegistry {
     @Override
     public void register() {
         /*

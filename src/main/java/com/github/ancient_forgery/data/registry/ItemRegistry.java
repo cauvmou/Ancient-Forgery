@@ -1,14 +1,9 @@
 package com.github.ancient_forgery.data.registry;
 
-import com.github.ancient_forgery.data.item.custom.CarvingKnifeItem;
-import com.github.ancient_forgery.data.item.custom.LongBowItem;
-import com.github.ancient_forgery.data.item.custom.ShortBowItem;
-import com.github.ancient_forgery.data.item.custom.SoulBottleItem;
-import com.github.ancient_forgery.data.item.custom.TestBrush;
+import com.github.ancient_forgery.data.item.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -23,6 +18,12 @@ public class ItemRegistry implements AFRegistry {
     public static final Item SUSPICIOUS_SOUL_SAND_ITEM = new BlockItem(
             SUSPICIOUS_SOUL_SAND,
             new Item.Settings());
+
+    public static final Item CURSED_BOOKSHELF_ITEM = new BlockItem(
+            CURSED_BOOKSHELF,
+            new Item.Settings()
+    );
+
     public static final Item SOUL_BOTTLE = new SoulBottleItem(new FabricItemSettings().rarity(Rarity.RARE));
     public static final Item BONE_PILE_ITEM = new BlockItem(
             BONE_PILE,
@@ -122,11 +123,16 @@ public class ItemRegistry implements AFRegistry {
     public static final Item BONE_BRICK_SLAB_ITEM = new BlockItem(
             BONE_BRICK_SLAB, new FabricItemSettings());
 
+    public static final Item CURSED_LECTERN_ITEM = new BlockItem(CURSED_LECTERN, new FabricItemSettings());
+
     @Override
     public void register() {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "suspicious_soul_sand"),
                 SUSPICIOUS_SOUL_SAND_ITEM);
+        Registry.register(Registries.ITEM,
+                new Identifier(MOD_ID, "cursed_bookshelf"),
+                CURSED_BOOKSHELF_ITEM);
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "soul_bottle"),
                 SOUL_BOTTLE);
@@ -241,5 +247,6 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "bone_brick_slab"),
                 BONE_BRICK_SLAB_ITEM);
+        Registry.register(Registries.ITEM, new Identifier(MOD_ID, "cursed_lectern"), CURSED_LECTERN_ITEM);
     }
 }
