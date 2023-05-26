@@ -34,10 +34,6 @@ public class FletchingRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
-        //if (inventory.size() < 3) return false;
-        //if (world.isClient()) return false;
-        //LOGGER.error(recipeItems.get(0).toJson().toString());
-
         return recipeItems.get(0).test(inventory.getStack(0)) &&
                 recipeItems.get(1).test(inventory.getStack(1)) &&
                 recipeItems.get(2).test(inventory.getStack(2));

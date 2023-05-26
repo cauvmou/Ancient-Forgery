@@ -3,32 +3,17 @@ package com.github.ancient_forgery.data.screen;
 import com.github.ancient_forgery.data.recipe.FletchingRecipe;
 import com.github.ancient_forgery.data.recipe.FletchingRecipeType;
 import com.github.ancient_forgery.data.registry.ScreenRegistry;
-import com.github.ancient_forgery.data.screen.slot.ModResultSlot;
-import net.minecraft.block.SmithingTableBlock;
-import net.minecraft.client.gui.screen.ingame.ForgingScreen;
-import net.minecraft.client.gui.screen.ingame.SmithingScreen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.SmithingRecipe;
 import net.minecraft.screen.*;
-import net.minecraft.screen.slot.CraftingResultSlot;
-import net.minecraft.screen.slot.ForgingSlotsManager;
-import net.minecraft.recipe.SmithingRecipe;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.text.Text;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldEvents;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,7 +50,6 @@ public class FletchingScreenHandler extends ScreenHandler {
 
         Optional<FletchingRecipe> match = world.getRecipeManager()
                 .getFirstMatch(FletchingRecipeType.INSTANCE, (SimpleInventory) inventory, world);
-        playerInventory.player.sendMessage(Text.of(match.toString()));
     }
 
     private class FletchingResultSlot extends Slot {
