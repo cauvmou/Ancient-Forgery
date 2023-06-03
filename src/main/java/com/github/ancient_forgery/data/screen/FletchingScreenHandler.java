@@ -22,6 +22,10 @@ public class FletchingScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     protected final CraftingResultInventory output = new CraftingResultInventory();
     protected final ScreenHandlerContext context;
+    private final Slot tipSlot;
+    private final Slot shaftSlot;
+    private final Slot fletchingSlot;
+    private final FletchingResultSlot resultSlot;
 
     public FletchingScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(ScreenRegistry.FLETCHING_SCREEN_HANDLER, syncId);
@@ -32,10 +36,14 @@ public class FletchingScreenHandler extends ScreenHandler {
         this.context = context;
 
         //Our inventory
-        this.addSlot(new Slot(this.inventory, 0, 10, 15));
-        this.addSlot(new Slot(this.inventory, 1, 10, 35));
-        this.addSlot(new Slot(this.inventory, 2, 10, 55));
-        this.addSlot(new FletchingResultSlot(output, 3, 65, 35));
+        tipSlot = new Slot(this.inventory, 0, 10, 15);
+        this.addSlot(tipSlot);
+        shaftSlot = new Slot(this.inventory, 1, 10, 35);
+        this.addSlot(shaftSlot);
+        fletchingSlot = new Slot(this.inventory, 2, 10, 55);
+        this.addSlot(fletchingSlot);
+        resultSlot = new FletchingResultSlot(output, 3, 65, 35);
+        this.addSlot(resultSlot);
 
         //The player inventory
         for (int m = 0; m < 3; m++) {
@@ -47,9 +55,6 @@ public class FletchingScreenHandler extends ScreenHandler {
         for (int m = 0; m < 9; m++) {
             this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
         }
-
-        Optional<FletchingRecipe> match = world.getRecipeManager()
-                .getFirstMatch(FletchingRecipeType.INSTANCE, (SimpleInventory) inventory, world);
     }
 
     private class FletchingResultSlot extends Slot {
@@ -87,7 +92,7 @@ public class FletchingScreenHandler extends ScreenHandler {
             ItemStack itemStack = fletchingRecipe.craft((SimpleInventory) this.inventory, this.world.getRegistryManager());
             if (itemStack.isItemEnabled(this.world.getEnabledFeatures())) {
                 this.output.setLastRecipe(fletchingRecipe);
-                this.output.setStack(0, itemStack);
+                this.output.setStack(resultSlot.getIndex(), itemStack);
             }
         }
     }
@@ -115,15 +120,15 @@ public class FletchingScreenHandler extends ScreenHandler {
     public void onTakeOutput(PlayerEntity player, ItemStack stack) {
         stack.onCraft(player.getWorld(), player, stack.getCount());
         this.output.unlockLastRecipe(player, this.getInputStacks());
-        this.decrementStack(0);
-        this.decrementStack(1);
-        this.decrementStack(2);
+        this.decrementStack(tipSlot.getIndex());
+        this.decrementStack(shaftSlot.getIndex());
+        this.decrementStack(fletchingSlot.getIndex());
         // TODO: make fletching world event
         //this.context.run((world, pos) -> world.syncWorldEvent(WorldEvents.SMITHING_TABLE_USED, pos, 0));
     }
 
     private List<ItemStack> getInputStacks() {
-        return List.of(this.inventory.getStack(0), this.inventory.getStack(1), this.inventory.getStack(2));
+        return List.of(tipSlot.getStack(), shaftSlot.getStack(), fletchingSlot.getStack());
     }
 
     @Override
