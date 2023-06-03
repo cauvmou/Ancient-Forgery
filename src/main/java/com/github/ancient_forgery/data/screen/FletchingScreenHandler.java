@@ -1,5 +1,9 @@
 package com.github.ancient_forgery.data.screen;
 
+import com.github.ancient_forgery.data.item.ArrowFletching;
+import com.github.ancient_forgery.data.item.ArrowShaft;
+import com.github.ancient_forgery.data.item.ArrowTip;
+import com.github.ancient_forgery.data.item.custom.ArrowTipItem;
 import com.github.ancient_forgery.data.recipe.FletchingRecipe;
 import com.github.ancient_forgery.data.recipe.FletchingRecipeType;
 import com.github.ancient_forgery.data.registry.ScreenRegistry;
@@ -8,7 +12,12 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.DyeItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.scanner.NbtCollector;
 import net.minecraft.screen.*;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
@@ -16,6 +25,10 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Optional;
+
+import static com.github.ancient_forgery.data.registry.ItemRegistry.FLETCHING_ITEMS;
+import static com.github.ancient_forgery.data.registry.ItemRegistry.SHAFT_ITEMS;
+import static net.minecraft.item.Items.ARROW;
 
 public class FletchingScreenHandler extends ScreenHandler {
     private final World world;
@@ -25,7 +38,7 @@ public class FletchingScreenHandler extends ScreenHandler {
     private final Slot tipSlot;
     private final Slot shaftSlot;
     private final Slot fletchingSlot;
-    private final FletchingResultSlot resultSlot;
+    private final Slot resultSlot;
 
     public FletchingScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(ScreenRegistry.FLETCHING_SCREEN_HANDLER, syncId);
@@ -36,14 +49,25 @@ public class FletchingScreenHandler extends ScreenHandler {
         this.context = context;
 
         //Our inventory
-        tipSlot = new Slot(this.inventory, 0, 10, 15);
-        this.addSlot(tipSlot);
-        shaftSlot = new Slot(this.inventory, 1, 10, 35);
-        this.addSlot(shaftSlot);
-        fletchingSlot = new Slot(this.inventory, 2, 10, 55);
-        this.addSlot(fletchingSlot);
-        resultSlot = new FletchingResultSlot(output, 3, 65, 35);
-        this.addSlot(resultSlot);
+        this.tipSlot = this.addSlot(new Slot(this.inventory, 0, 10, 15) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.getItem() instanceof ArrowTipItem;
+            }
+        });
+        this.shaftSlot = this.addSlot(new Slot(this.inventory, 1, 10, 35) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return SHAFT_ITEMS.contains(stack.getItem());
+            }
+        });
+        this.fletchingSlot = this.addSlot(new Slot(this.inventory, 2, 10, 55) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return FLETCHING_ITEMS.contains(stack.getItem());
+            }
+        });
+        this.resultSlot = this.addSlot(new FletchingResultSlot(output, 3, 65, 35));
 
         //The player inventory
         for (int m = 0; m < 3; m++) {
@@ -84,16 +108,24 @@ public class FletchingScreenHandler extends ScreenHandler {
     }
 
     public void updateResult() {
-        List<FletchingRecipe> list = this.world.getRecipeManager().getAllMatches(FletchingRecipeType.INSTANCE, (SimpleInventory) this.inventory, this.world);
-        if (list.isEmpty()) {
-            this.output.setStack(0, ItemStack.EMPTY);
-        } else {
-            FletchingRecipe fletchingRecipe = list.get(0);
-            ItemStack itemStack = fletchingRecipe.craft((SimpleInventory) this.inventory, this.world.getRegistryManager());
-            if (itemStack.isItemEnabled(this.world.getEnabledFeatures())) {
-                this.output.setLastRecipe(fletchingRecipe);
-                this.output.setStack(resultSlot.getIndex(), itemStack);
-            }
+        ItemStack tipItem = this.tipSlot.getStack();
+        ItemStack shaftItem = this.shaftSlot.getStack();
+        ItemStack fletchingItem = this.fletchingSlot.getStack();
+        ItemStack resultItem = ARROW.getDefaultStack();
+
+        if (!tipItem.isEmpty() && !shaftItem.isEmpty() && !fletchingItem.isEmpty()) {
+            ArrowTip arrowTip = ((ArrowTipItem)tipItem.getItem()).getArrowTip();
+            ArrowShaft arrowShaft = ArrowShaft.fromItem(shaftItem.getItem());
+            ArrowFletching arrowFletching = ArrowFletching.fromItem(fletchingItem.getItem());
+
+            NbtCompound compound = new NbtCompound();
+            compound.putInt("tip", arrowTip.getId());
+            compound.putInt("shaft", arrowShaft.getId());
+            compound.putInt("fletching", arrowFletching.getId());
+            resultItem.setNbt(compound);
+            resultItem.setCount(6);
+
+            this.output.setStack(resultSlot.getIndex(), resultItem);
         }
     }
 
@@ -156,20 +188,18 @@ public class FletchingScreenHandler extends ScreenHandler {
         return newStack;
     }
 
+    @Override
+    public void onClosed(PlayerEntity player) {
+        super.onClosed(player);
+        this.context.run((world, pos) -> this.dropInventory(player, this.inventory));
+    }
+
     private SimpleInventory createInputInventory() {
         return new SimpleInventory(3){
             @Override
             public void markDirty() {
                 super.markDirty();
                 FletchingScreenHandler.this.onContentChanged(this);
-            }
-
-            // TODO: get this to work
-            @Override
-            public void onClose(PlayerEntity player) {
-                super.onClose(player);
-                FletchingScreenHandler.this.context.run((world, pos) ->
-                        FletchingScreenHandler.this.dropInventory(player, FletchingScreenHandler.this.inventory));
             }
         };
     }
