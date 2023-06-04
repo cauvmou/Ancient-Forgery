@@ -10,5 +10,5 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public interface ArrowItemInterface {
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context);
+    void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context);
 }

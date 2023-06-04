@@ -3,6 +3,7 @@
   "package": "com.github.ancient_forgery.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ArrowEntityMixin",
     "ArrowItemMixin",
     "BrushItemMixin",
     "BubbleColumnMixin",
