@@ -1,6 +1,7 @@
 package com.github.ancient_forgery.data.render.block.entity;
 
 import com.github.ancient_forgery.data.block.entity.CursedLecternEntity;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.LecternBlock;
 import net.minecraft.block.entity.EnchantingTableBlockEntity;
 import net.minecraft.client.render.RenderLayer;
@@ -27,7 +28,10 @@ public class CursedLecternEntityRenderer implements BlockEntityRenderer<CursedLe
 
     @Override
     public void render(CursedLecternEntity blockEntity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j) {
-        float h;
+        BlockState blockState = blockEntity.getCachedState();
+        if (!blockState.get(LecternBlock.HAS_BOOK).booleanValue()) {
+            return;
+        }
         matrixStack.push();
         matrixStack.translate(0.5f, 1.0f, 0.5f);
         float g = (float)blockEntity.ticks + f;
