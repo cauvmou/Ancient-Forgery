@@ -14,8 +14,6 @@ public class RecipeSerializerRegistry implements AFRegistry {
     public static final RecipeSerializer<CursedBookshelfRecipe> CURSED_BOOKSHELF = new SpecialRecipeSerializer<CursedBookshelfRecipe>(CursedBookshelfRecipe::new);
     @Override
     public void register() {
-        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(MOD_ID, "crafting_special_cursedbookshelf"), CURSED_BOOKSHELF)
-;       Registry.register(Registries.RECIPE_SERIALIZER, FletchingRecipeSerializer.ID,
-                FletchingRecipeSerializer.INSTANCE);
+        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(MOD_ID, "crafting_special_cursedbookshelf"), CURSED_BOOKSHELF);
     }
 }

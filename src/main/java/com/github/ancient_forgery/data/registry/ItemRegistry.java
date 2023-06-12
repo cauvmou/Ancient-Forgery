@@ -1,22 +1,23 @@
 package com.github.ancient_forgery.data.registry;
 
-import com.github.ancient_forgery.data.item.custom.CarvingKnifeItem;
-import com.github.ancient_forgery.data.item.custom.LongBowItem;
-import com.github.ancient_forgery.data.item.custom.ShortBowItem;
-import com.github.ancient_forgery.data.item.custom.SoulBottleItem;
-import com.github.ancient_forgery.data.item.custom.TestBrush;
+import com.github.ancient_forgery.data.item.ArrowTip;
+import com.github.ancient_forgery.data.item.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static com.github.ancient_forgery.data.registry.BlockRegistry.*;
 import static com.github.ancient_forgery.main.AncientForgery.MOD_ID;
+import static net.minecraft.item.Items.*;
 
 public class ItemRegistry implements AFRegistry {
 
@@ -110,13 +111,17 @@ public class ItemRegistry implements AFRegistry {
     public static final CarvingKnifeItem CARVING_KNIFE_ITEM = new CarvingKnifeItem(
             ToolMaterials.IRON, new FabricItemSettings()
     );
-    public static final Item FLINT_ARROW_TIP = new Item(
+    public static final Item FLINT_ARROW_TIP = new ArrowTipItem(
+            ArrowTip.FLINT,
             new FabricItemSettings());
-    public static final Item IRON_ARROW_TIP = new Item(
+    public static final Item IRON_ARROW_TIP = new ArrowTipItem(
+            ArrowTip.IRON,
             new FabricItemSettings());
-    public static final Item DIAMOND_ARROW_TIP = new Item(
+    public static final Item DIAMOND_ARROW_TIP = new ArrowTipItem(
+            ArrowTip.DIAMOND,
             new FabricItemSettings());
-    public static final Item BONE_ARROW_TIP = new Item(
+    public static final Item BONE_ARROW_TIP = new ArrowTipItem(
+            ArrowTip.BONE,
             new FabricItemSettings());
 
     public static final Item BONE_PILLAR_ITEM = new BlockItem(
@@ -127,6 +132,10 @@ public class ItemRegistry implements AFRegistry {
             BONE_BRICKS, new FabricItemSettings());
     public static final Item BONE_BRICK_SLAB_ITEM = new BlockItem(
             BONE_BRICK_SLAB, new FabricItemSettings());
+
+    public static final Item CURSED_LECTERN_ITEM = new BlockItem(CURSED_LECTERN, new FabricItemSettings());
+    public static final List<Item> SHAFT_ITEMS = new ArrayList<>(Arrays.asList(STICK, BLAZE_ROD, BONE));
+    public static final List<Item> FLETCHING_ITEMS = new ArrayList<>(Arrays.asList(FEATHER, PARROT_FEATHER));
 
     @Override
     public void register() {
@@ -250,5 +259,6 @@ public class ItemRegistry implements AFRegistry {
         Registry.register(Registries.ITEM,
                 new Identifier(MOD_ID, "bone_brick_slab"),
                 BONE_BRICK_SLAB_ITEM);
+        Registry.register(Registries.ITEM, new Identifier(MOD_ID, "cursed_lectern"), CURSED_LECTERN_ITEM);
     }
 }
